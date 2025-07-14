@@ -34,16 +34,6 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
           category: "Guides",
         },
         {
-          title: "Student Visa Success Stories: Tips from Our Clients",
-          excerpt:
-            "Real experiences and practical advice from students who successfully obtained their Danish student visas.",
-          date: "March 5, 2024",
-          readTime: "6 min read",
-          image:
-            "https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
-          category: "Success Stories",
-        },
-        {
           title: "Understanding Danish Immigration Point System",
           excerpt:
             "A comprehensive breakdown of how the Danish immigration point system works and how to maximize your score.",
@@ -80,16 +70,6 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
           image:
             "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
           category: "Guides",
-        },
-        {
-          title: "Studievisa Succeshistorier: Tips fra Vores Klienter",
-          excerpt:
-            "Virkelige oplevelser og praktiske råd fra studerende, der med succes opnåede deres danske studievisa.",
-          date: "5. marts 2024",
-          readTime: "6 min læsning",
-          image:
-            "https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=400&h=250&fit=crop",
-          category: "Succeshistorier",
         },
         {
           title: "Forståelse af Dansk Immigration Pointsystem",
@@ -164,10 +144,18 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                     {post.excerpt}
                   </p>
 
-                  <button className="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 group">
+                  <a href={
+                    post.title === "New Changes to Danish Family Reunification Laws 2024" || post.title === "Nye Ændringer til Danske Familiesammenføringslove 2024"
+                      ? "/blogs/family-reunification"
+                      : post.title === "Complete Guide to EU Blue Card Applications" || post.title === "Komplet Guide til EU Blåkort Ansøgninger"
+                      ? "/blogs/eu-blue-card"
+                      : post.title === "Understanding Danish Immigration Point System" || post.title === "Forståelse af Dansk Immigration Pointsystem"
+                      ? "/blogs/immigration-points"
+                      : "#"
+                  } className="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 group">
                     {t.readMore}
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
