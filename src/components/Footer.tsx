@@ -154,7 +154,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
 
               <div className="flex items-center">
                 <Mail className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                <p className="text-gray-300">info@nordiclegalconsulting.com</p>
+                <p className="text-gray-300">info@nordiclegalconsulting.dk</p>
               </div>
             </div>
           </div>

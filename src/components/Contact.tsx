@@ -47,7 +47,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       address: "København, Danmark",
       contactDetails: {
         phone: "+45 50 47 60 37",
-        email: "info@nordiclegalconsulting.com",
+        email: "info@nordiclegalconsulting.dk",
         hours: "Mon - Fri: 9:00 - 17:00",
       },
       subjects: [
@@ -72,7 +72,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       address: "København, Danmark",
       contactDetails: {
         phone: "+45 50 47 60 37",
-        email: "info@nordiclegalconsulting.com",
+        email: "info@nordiclegalconsulting.dk",
         hours: "Man - Fre: 9:00 - 17:00",
       },
       subjects: [
