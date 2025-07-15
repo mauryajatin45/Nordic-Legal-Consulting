@@ -33,7 +33,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Navbar language={language} setLanguage={setLanguage} currentPage="" setCurrentPage={() => {}} />
+        <Navbar language={language} setLanguage={setLanguage} />
         <Routes>
           <Route
             path="/"

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { ChevronDown, Globe, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
   language: string;
   setLanguage: (lang: string) => void;
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, currentPage, setCurrentPage }) => {
+const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
-    { label: language === 'en' ? 'About Us' : 'Om Os', href: 'about' },
+    { label: language === 'en' ? 'About Us' : 'Om Os', href: '/about' },
     { label: language === 'en' ? 'Experts' : 'Eksperter', href: '#experts' },
     { label: language === 'en' ? 'Services' : 'Tjenester', href: '#services' },
     { label: 'FAQs', href: '#faqs' },
@@ -21,10 +21,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, currentPage, set
   ];
 
   const handleNavClick = (href: string) => {
-    if (href === 'about') {
-      setCurrentPage('about');
-    } else if (href.startsWith('#')) {
-      setCurrentPage('home');
+    if (href.startsWith('#')) {
+      navigate('/');
       // Small delay to ensure page is loaded before scrolling
       setTimeout(() => {
         const element = document.querySelector(href);
@@ -32,6 +30,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, currentPage, set
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }, 100);
+    } else {
+      navigate(href);
     }
     setIsMobileMenuOpen(false);
   };
@@ -41,7 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage, currentPage, set
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => setCurrentPage('home')}>
+          <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
             <img src="/image.png" alt="Nordic Legal Consulting" className="h-10 w-auto" />
           </div>
 
