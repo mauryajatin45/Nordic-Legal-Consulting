@@ -1,5 +1,7 @@
+// Enhanced Hero Section with better accessibility, responsive UI, animations, and form readiness
 import React, { useState } from 'react';
 import { Calendar, Phone, User, Globe } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 interface HeroProps {
   language: string;
@@ -16,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    // Add API submission logic here
+    // TODO: Implement API submission and success message
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -68,68 +70,82 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   return (
     <section
       className="relative min-h-screen bg-cover bg-center flex items-center justify-center"
-      style={{
-        backgroundImage: "url('./public/Hero.webp')"
-      }}
+      style={{ backgroundImage: "url('/Hero.webp')" }}
+      role="region"
+      aria-label="Hero with Consultation Form"
     >
-      {/* Overlays */}
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute inset-0 bg-gray-900/30 mix-blend-multiply"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-        {/* Text Section */}
-        <div className="text-white space-y-5 text-center lg:text-left">
+        <motion.div
+          className="text-white space-y-5 text-center lg:text-left"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-            {t.title}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r text-white">
+              {t.title}
+            </span>
           </h1>
-          <p className="text-base sm:text-lg md:text-xl text-white/80">
+          <p className="text-base sm:text-lg md:text-xl text-white/90">
             {t.subtitle}
           </p>
           <p className="text-sm sm:text-base md:text-lg">
             {t.cta}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Form Section */}
-        <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl p-6 sm:p-8 shadow-2xl w-full max-w-xl mx-auto">
+        <motion.div
+          className="backdrop-blur-md bg-white/20 border border-white/30 rounded-2xl p-6 sm:p-8 shadow-2xl w-full max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1, delay: 0.2 }}
+        >
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
             <Calendar className="w-5 h-5 sm:w-6 sm:h-6 mr-3 text-white" /> {t.formTitle}
           </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5" role="form">
             <div>
-              <label className="text-sm font-medium text-white flex items-center mb-1">
+              <label htmlFor="fullName" className="text-sm font-medium text-white flex items-center mb-1">
                 <User className="w-4 h-4 mr-2" /> {t.fullName}
               </label>
               <input
                 type="text"
+                id="fullName"
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleInputChange}
                 className="w-full p-3 rounded-lg bg-white/70 border border-white/40 text-gray-900"
+                placeholder="John Doe"
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-white flex items-center mb-1">
+              <label htmlFor="mobile" className="text-sm font-medium text-white flex items-center mb-1">
                 <Phone className="w-4 h-4 mr-2" /> {t.mobile}
               </label>
               <input
                 type="tel"
+                id="mobile"
                 name="mobile"
                 value={formData.mobile}
                 onChange={handleInputChange}
                 className="w-full p-3 rounded-lg bg-white/70 border border-white/40 text-gray-900"
+                placeholder="+45 123 456 78"
                 required
               />
             </div>
 
             <div>
-              <label className="text-sm font-medium text-white flex items-center mb-1">
+              <label htmlFor="preferredLanguage" className="text-sm font-medium text-white flex items-center mb-1">
                 <Globe className="w-4 h-4 mr-2" /> {t.preferredLang}
               </label>
               <select
+                id="preferredLanguage"
                 name="preferredLanguage"
                 value={formData.preferredLanguage}
                 onChange={handleInputChange}
@@ -141,10 +157,11 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
             </div>
 
             <div>
-              <label className="text-sm font-medium text-white mb-1">
+              <label htmlFor="purpose" className="text-sm font-medium text-white mb-1">
                 {t.purpose}
               </label>
               <select
+                id="purpose"
                 name="purpose"
                 value={formData.purpose}
                 onChange={handleInputChange}
@@ -165,7 +182,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
               {t.bookButton}
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
