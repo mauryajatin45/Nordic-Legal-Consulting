@@ -141,9 +141,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-blue-400 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-300">
-                  København
-                  <br />
-                  Danmark
+                  København, Danmark
                 </p>
               </div>
 
