@@ -8,112 +8,113 @@ interface TestimonialsProps {
 const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const content = {
-    en: {
-      title: "WHAT OUR CLIENTS SAY",
-      subtitle:
-        "Real experiences from families we've helped reunite in Denmark",
-      testimonials: [
-        {
-          name: "Ahmed Hassan",
-          country: "Egypt",
-          case: "Family Reunification",
-          rating: 5,
-          text: "Nordic Legal Consulting made our family reunification process smooth and stress-free. Sarah guided us through every step and we got approved in just 8 months. Highly recommended!",
-          image:
-            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Maria Rodriguez",
-          country: "Spain",
-          case: "EU Blue Card",
-          rating: 5,
-          text: "Professional, knowledgeable, and always available to answer questions. Lars helped me get my EU Blue Card approved quickly. The service exceeded my expectations.",
-          image:
-            "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Raj Patel",
-          country: "India",
-          case: "Student Visa",
-          rating: 5,
-          text: "Maria was incredibly helpful with my student visa application. She explained everything clearly and helped me gather all the necessary documents. Got approved on first try!",
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Elena Popovic",
-          country: "Serbia",
-          case: "Work Permit",
-          rating: 5,
-          text: "Excellent service from start to finish. The team was professional, responsive, and made the complex immigration process much easier to understand and navigate.",
-          image:
-            "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Chen Wei",
-          country: "China",
-          case: "Family Reunification",
-          rating: 5,
-          text: "After being rejected once by another lawyer, Nordic Legal Consulting helped us reapply successfully. Their attention to detail and expertise made all the difference.",
-          image:
-            "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-      ],
-    },
-    da: {
-      title: "HVAD VORES KLIENTER SIGER",
-      subtitle:
-        "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
-      testimonials: [
-        {
-          name: "Ahmed Hassan",
-          country: "Egypten",
-          case: "Familiesammenføring",
-          rating: 5,
-          text: "Nordic Legal Consulting gjorde vores familiesammenføringsproces glat og stressfri. Sarah guidede os gennem hvert trin, og vi blev godkendt på kun 8 måneder. Stærkt anbefalet!",
-          image:
-            "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Maria Rodriguez",
-          country: "Spanien",
-          case: "EU Blåkort",
-          rating: 5,
-          text: "Professionel, vidende og altid tilgængelig til at besvare spørgsmål. Lars hjælp mig med at få mit EU Blåkort godkendt hurtigt. Servicen overgik mine forventninger.",
-          image:
-            "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Raj Patel",
-          country: "Indien",
-          case: "Studievisa",
-          rating: 5,
-          text: "Maria var utrolig hjælpsom med min studievisa ansøgning. Hun forklarede alt klart og hjælp mig med at samle alle nødvendige dokumenter. Blev godkendt på første forsøg!",
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Elena Popovic",
-          country: "Serbien",
-          case: "Arbejdstilladelse",
-          rating: 5,
-          text: "Fremragende service fra start til slut. Teamet var professionelt, lydhørt og gjorde den komplekse immigrationsproces meget lettere at forstå og navigere.",
-          image:
-            "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-        {
-          name: "Chen Wei",
-          country: "Kina",
-          case: "Familiesammenføring",
-          rating: 5,
-          text: "Efter at være blevet afvist en gang af en anden advokat, hjælp Nordic Legal Consulting os med at genansøge med succes. Deres opmærksomhed på detaljer og ekspertise gjorde hele forskellen.",
-          image:
-            "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-        },
-      ],
-    },
-  };
+const content = {
+  en: {
+    title: "WHAT OUR CLIENTS SAY",
+    subtitle:
+      "Real experiences from families we've helped reunite in Denmark",
+    testimonials: [
+      {
+        name: "Ahmed Hassan",
+        country: "Egypt",
+        case: "Family Reunification",
+        rating: 5,
+        text: "Nordic Legal Consulting made our family reunification process smooth and stress-free. Thomas guided us through every step and we got approved in just 8 months. Highly recommended!",
+        image:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Carlos Martinez",
+        country: "Spain",
+        case: "EU Blue Card",
+        rating: 5,
+        text: "Professional, knowledgeable, and always available to answer questions. Lars helped me get my EU Blue Card approved quickly. The service exceeded my expectations.",
+        image:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Raj Patel",
+        country: "India",
+        case: "Student Visa",
+        rating: 5,
+        text: "Jonas was incredibly helpful with my student visa application. He explained everything clearly and helped me gather all the necessary documents. Got approved on first try!",
+        image:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Milos Popovic",
+        country: "Serbia",
+        case: "Work Permit",
+        rating: 5,
+        text: "Excellent service from start to finish. The team was professional, responsive, and made the complex immigration process much easier to understand and navigate.",
+        image:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Chen Wei",
+        country: "China",
+        case: "Family Reunification",
+        rating: 5,
+        text: "After being rejected once by another lawyer, Nordic Legal Consulting helped us reapply successfully. Their attention to detail and expertise made all the difference.",
+        image:
+          "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+    ],
+  },
+  da: {
+    title: "HVAD VORES KLIENTER SIGER",
+    subtitle:
+      "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
+    testimonials: [
+      {
+        name: "Ahmed Hassan",
+        country: "Egypten",
+        case: "Familiesammenføring",
+        rating: 5,
+        text: "Nordic Legal Consulting gjorde vores familiesammenføringsproces glat og stressfri. Thomas guidede os gennem hvert trin, og vi blev godkendt på kun 8 måneder. Stærkt anbefalet!",
+        image:
+          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Carlos Martinez",
+        country: "Spanien",
+        case: "EU Blåkort",
+        rating: 5,
+        text: "Professionel, vidende og altid tilgængelig til at besvare spørgsmål. Lars hjalp mig med at få mit EU Blåkort godkendt hurtigt. Servicen overgik mine forventninger.",
+        image:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Raj Patel",
+        country: "Indien",
+        case: "Studievisa",
+        rating: 5,
+        text: "Jonas var utrolig hjælpsom med min studievisa-ansøgning. Han forklarede alt klart og hjalp mig med at samle alle nødvendige dokumenter. Blev godkendt på første forsøg!",
+        image:
+          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Milos Popovic",
+        country: "Serbien",
+        case: "Arbejdstilladelse",
+        rating: 5,
+        text: "Fremragende service fra start til slut. Teamet var professionelt, lydhørt og gjorde den komplekse immigrationsproces meget lettere at forstå og navigere.",
+        image:
+          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+      {
+        name: "Chen Wei",
+        country: "Kina",
+        case: "Familiesammenføring",
+        rating: 5,
+        text: "Efter at være blevet afvist en gang af en anden advokat, hjalp Nordic Legal Consulting os med at genansøge med succes. Deres opmærksomhed på detaljer og ekspertise gjorde hele forskellen.",
+        image:
+          "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+      },
+    ],
+  },
+};
+
 
   const t = content[language as keyof typeof content];
 

@@ -15,128 +15,129 @@ interface ExpertsProps {
 const Experts: React.FC<ExpertsProps> = ({ language }) => {
   const [activeExpert, setActiveExpert] = useState(0);
 
-  const content = {
-    en: {
-      title: "OUR LEGAL EXPERTS",
-      subtitle: "Meet our experienced immigration lawyers",
-      viewProfile: "View Full Profile",
-      nextExpert: "Next Expert",
-      prevExpert: "Previous Expert",
-      experts: [
-        {
-          name: "Sarah Nielsen",
-          title: "Senior Immigration Lawyer",
-          experience: "12+ years",
-          specialization: "Family Reunification & EU Law",
-          description:
-            "Sarah specializes in complex family reunification cases and has successfully handled over 500 immigration cases. Her expertise in Danish and EU immigration law makes her one of the most sought-after lawyers in the field.",
-          achievements: [
-            "500+ successful cases",
-            "Certified EU Law specialist",
-            "Danish Bar Association member",
-          ],
-          rating: 4.9,
-          cases: 523,
-          image:
-            "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-        {
-          name: "Lars Andersen",
-          title: "Immigration Law Partner",
-          experience: "15+ years",
-          specialization: "Business Immigration & Visas",
-          description:
-            "Lars brings extensive experience in business immigration and visa applications. He has helped numerous international companies establish their presence in Denmark and assisted professionals in obtaining work permits.",
-          achievements: [
-            "1000+ visa applications",
-            "Business immigration expert",
-            "Fluent in 5 languages",
-          ],
-          rating: 4.8,
-          cases: 1247,
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-        {
-          name: "Maria Petersen",
-          title: "Associate Immigration Lawyer",
-          experience: "8+ years",
-          specialization: "Student Visas & Residence Permits",
-          description:
-            "Maria focuses on student immigration and residence permit applications. Her compassionate approach and attention to detail have helped hundreds of students and young professionals start their new life in Denmark.",
-          achievements: [
-            "300+ student cases",
-            "Residence permit specialist",
-            "Youth advocacy award",
-          ],
-          rating: 4.9,
-          cases: 387,
-          image:
-            "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-      ],
-    },
-    da: {
-      title: "VORES JURIDISKE EKSPERTER",
-      subtitle: "Mød vores erfarne immigrationsadvokater",
-      viewProfile: "Se Fuld Profil",
-      nextExpert: "Næste Ekspert",
-      prevExpert: "Forrige Ekspert",
-      experts: [
-        {
-          name: "Sarah Nielsen",
-          title: "Senior Immigrationsadvokat",
-          experience: "12+ år",
-          specialization: "Familiesammenføring & EU-ret",
-          description:
-            "Sarah specialiserer sig i komplekse familiesammenføringssager og har med succes håndteret over 500 immigrationssager. Hendes ekspertise inden for dansk og EU-immigrationsret gør hende til en af de mest efterspurgte advokater på området.",
-          achievements: [
-            "500+ succesfulde sager",
-            "Certificeret EU-ret specialist",
-            "Dansk Advokatsamfund medlem",
-          ],
-          rating: 4.9,
-          cases: 523,
-          image:
-            "https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-        {
-          name: "Lars Andersen",
-          title: "Immigrationsret Partner",
-          experience: "15+ år",
-          specialization: "Erhvervsimmigration & Visa",
-          description:
-            "Lars bringer omfattende erfaring inden for erhvervsimmigration og visa-ansøgninger. Han har hjulpet talrige internationale virksomheder med at etablere deres tilstedeværelse i Danmark og assisteret fagfolk med at opnå arbejdstilladelser.",
-          achievements: [
-            "1000+ visa ansøgninger",
-            "Erhvervsimmigration ekspert",
-            "Flydende i 5 sprog",
-          ],
-          rating: 4.8,
-          cases: 1247,
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-        {
-          name: "Maria Petersen",
-          title: "Associeret Immigrationsadvokat",
-          experience: "8+ år",
-          specialization: "Studievisa & Opholdstilladelser",
-          description:
-            "Maria fokuserer på studieimmigration og opholdstilladelsesansøgninger. Hendes medfølende tilgang og opmærksomhed på detaljer har hjulpet hundredvis af studerende og unge fagfolk med at starte deres nye liv i Danmark.",
-          achievements: [
-            "300+ studiesager",
-            "Opholdstilladelse specialist",
-            "Ungdomsadvokat pris",
-          ],
-          rating: 4.9,
-          cases: 387,
-          image:
-            "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
-        },
-      ],
-    },
-  };
+const content = {
+  en: {
+    title: "OUR LEGAL EXPERTS",
+    subtitle: "Meet our experienced immigration lawyers",
+    viewProfile: "View Full Profile",
+    nextExpert: "Next Expert",
+    prevExpert: "Previous Expert",
+    experts: [
+      {
+        name: "Thomas Nielsen",
+        title: "Senior Immigration Lawyer",
+        experience: "12+ years",
+        specialization: "Family Reunification & EU Law",
+        description:
+          "Thomas specializes in complex family reunification cases and has successfully handled over 500 immigration cases. His expertise in Danish and EU immigration law makes him one of the most sought-after lawyers in the field.",
+        achievements: [
+          "500+ successful cases",
+          "Certified EU Law specialist",
+          "Danish Bar Association member",
+        ],
+        rating: 4.9,
+        cases: 523,
+        image:
+          "https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+      {
+        name: "Lars Andersen",
+        title: "Immigration Law Partner",
+        experience: "15+ years",
+        specialization: "Business Immigration & Visas",
+        description:
+          "Lars brings extensive experience in business immigration and visa applications. He has helped numerous international companies establish their presence in Denmark and assisted professionals in obtaining work permits.",
+        achievements: [
+          "1000+ visa applications",
+          "Business immigration expert",
+          "Fluent in 5 languages",
+        ],
+        rating: 4.8,
+        cases: 1247,
+        image:
+          "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+      {
+        name: "Jonas Petersen",
+        title: "Associate Immigration Lawyer",
+        experience: "8+ years",
+        specialization: "Student Visas & Residence Permits",
+        description:
+          "Jonas focuses on student immigration and residence permit applications. His compassionate approach and attention to detail have helped hundreds of students and young professionals start their new life in Denmark.",
+        achievements: [
+          "300+ student cases",
+          "Residence permit specialist",
+          "Youth advocacy award",
+        ],
+        rating: 4.9,
+        cases: 387,
+        image:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+    ],
+  },
+  da: {
+    title: "VORES JURIDISKE EKSPERTER",
+    subtitle: "Mød vores erfarne immigrationsadvokater",
+    viewProfile: "Se Fuld Profil",
+    nextExpert: "Næste Ekspert",
+    prevExpert: "Forrige Ekspert",
+    experts: [
+      {
+        name: "Thomas Nielsen",
+        title: "Senior Immigrationsadvokat",
+        experience: "12+ år",
+        specialization: "Familiesammenføring & EU-ret",
+        description:
+          "Thomas specialiserer sig i komplekse familiesammenføringssager og har med succes håndteret over 500 immigrationssager. Hans ekspertise inden for dansk og EU-immigrationsret gør ham til en af de mest efterspurgte advokater på området.",
+        achievements: [
+          "500+ succesfulde sager",
+          "Certificeret EU-ret specialist",
+          "Dansk Advokatsamfund medlem",
+        ],
+        rating: 4.9,
+        cases: 523,
+        image:
+          "https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+      {
+        name: "Lars Andersen",
+        title: "Immigrationsret Partner",
+        experience: "15+ år",
+        specialization: "Erhvervsimmigration & Visa",
+        description:
+          "Lars bringer omfattende erfaring inden for erhvervsimmigration og visa-ansøgninger. Han har hjulpet talrige internationale virksomheder med at etablere deres tilstedeværelse i Danmark og assisteret fagfolk med at opnå arbejdstilladelser.",
+        achievements: [
+          "1000+ visa ansøgninger",
+          "Erhvervsimmigration ekspert",
+          "Flydende i 5 sprog",
+        ],
+        rating: 4.8,
+        cases: 1247,
+        image:
+          "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+      {
+        name: "Jonas Petersen",
+        title: "Associeret Immigrationsadvokat",
+        experience: "8+ år",
+        specialization: "Studievisa & Opholdstilladelser",
+        description:
+          "Jonas fokuserer på studieimmigration og opholdstilladelsesansøgninger. Hans medfølende tilgang og opmærksomhed på detaljer har hjulpet hundredvis af studerende og unge fagfolk med at starte deres nye liv i Danmark.",
+        achievements: [
+          "300+ studiesager",
+          "Opholdstilladelse specialist",
+          "Ungdomsadvokat pris",
+        ],
+        rating: 4.9,
+        cases: 387,
+        image:
+          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
+      },
+    ],
+  },
+};
+
 
   const t = content[language as keyof typeof content];
 
