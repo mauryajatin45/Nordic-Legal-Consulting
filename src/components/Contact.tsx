@@ -1,5 +1,6 @@
-import React, { useState, forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { useForm, ValidationError } from "@formspree/react";
 
 // Define the type for props
 interface ContactProps {
@@ -8,6 +9,7 @@ interface ContactProps {
 
 // Use forwardRef to forward the ref to the root element of the component
 const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
+  const [state, handleSubmit] = useForm("mnnzqqbd");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,11 +17,6 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
     subject: "",
     message: "",
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Contact form submitted:", formData);
-  };
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -43,6 +40,8 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       subject: "Subject",
       message: "Message",
       send: "Send Message",
+      sending: "Sending...",
+      success: "Thank you! Your message has been sent successfully.",
       contactInfo: "Contact Information",
       address: "København, Danmark",
       contactDetails: {
@@ -68,6 +67,8 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       subject: "Emne",
       message: "Besked",
       send: "Send Besked",
+      sending: "Sender...",
+      success: "Tak! Din besked er blevet sendt.",
       contactInfo: "Kontakt Information",
       address: "København, Danmark",
       contactDetails: {
@@ -90,7 +91,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
   return (
     <section
       id="contact"
-      ref={ref} // Attach the ref here
+      ref={ref}
       className="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
     >
       {/* Decorative Background */}
@@ -116,96 +117,147 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
               {t.formTitle}
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.name}
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                    required
+            {state.succeeded ? (
+              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-6 rounded-2xl text-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-12 w-12 mx-auto mb-4 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.email}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                    required
-                  />
-                </div>
+                </svg>
+                <p className="text-lg font-medium">{t.success}</p>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t.name}
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
+                      required
+                    />
+                    <ValidationError
+                      prefix="Name"
+                      field="name"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.phone}
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                  />
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t.email}
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
+                      required
+                    />
+                    <ValidationError
+                      prefix="Email"
+                      field="email"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.subject}
-                  </label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 backdrop-blur-sm"
-                    required
-                  >
-                    <option value="" className="bg-white">
-                      Select subject...
-                    </option>
-                    {t.subjects.map((subject, index) => (
-                      <option key={index} value={subject} className="bg-white">
-                        {subject}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t.phone}
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
+                    />
+                    <ValidationError
+                      prefix="Phone"
+                      field="phone"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t.subject}
+                    </label>
+                    <select
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 backdrop-blur-sm"
+                      required
+                    >
+                      <option value="" className="bg-white">
+                        Select subject...
                       </option>
-                    ))}
-                  </select>
+                      {t.subjects.map((subject, index) => (
+                        <option key={index} value={subject} className="bg-white">
+                          {subject}
+                        </option>
+                      ))}
+                    </select>
+                    <ValidationError
+                      prefix="Subject"
+                      field="subject"
+                      errors={state.errors}
+                      className="text-red-500 text-sm mt-1"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  {t.message}
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={6}
-                  className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                  required
-                />
-              </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t.message}
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={6}
+                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-gray-800 placeholder-gray-500 backdrop-blur-sm"
+                    required
+                  />
+                  <ValidationError
+                    prefix="Message"
+                    field="message"
+                    errors={state.errors}
+                    className="text-red-500 text-sm mt-1"
+                  />
+                </div>
 
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center"
-              >
-                <Send className="w-5 h-5 mr-2" />
-                {t.send}
-              </button>
-            </form>
+                <button
+                  type="submit"
+                  disabled={state.submitting}
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <Send className="w-5 h-5 mr-2" />
+                  {state.submitting ? t.sending : t.send}
+                </button>
+              </form>
+            )}
           </div>
 
           {/* Contact Info */}
