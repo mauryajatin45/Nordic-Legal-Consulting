@@ -43,8 +43,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.9,
           cases: 523,
-          image:
-            "https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
         },
         {
           name: "Lars Andersen",
@@ -60,8 +58,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.8,
           cases: 1247,
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
         },
         {
           name: "Hans Erik Andreasen",
@@ -77,8 +73,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.9,
           cases: 387,
-          image:
-            "https://img.freepik.com/free-photo/portrait-successful-man-having-stubble-posing-with-broad-smile-keeping-arms-folded_171337-1267.jpg?semt=ais_hybrid&w=740",
         },
       ],
     },
@@ -103,8 +97,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.9,
           cases: 523,
-          image:
-            "https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
         },
         {
           name: "Lars Andersen",
@@ -120,8 +112,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.8,
           cases: 1247,
-          image:
-            "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600&h=800&fit=crop",
         },
         {
           name: "Hans Erik Andreasen",
@@ -137,8 +127,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           ],
           rating: 4.9,
           cases: 387,
-          image:
-            "https://img.freepik.com/free-photo/portrait-successful-man-having-stubble-posing-with-broad-smile-keeping-arms-folded_171337-1267.jpg?semt=ais_hybrid&w=740",
         },
       ],
     },
@@ -239,7 +227,7 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* Mobile Carousel */}
+        {/* Mobile Carousel - Unchanged */}
         <div className="lg:hidden">
           <div
             className="relative overflow-hidden"
@@ -258,16 +246,6 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
               {t.experts.map((expert, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-2">
                   <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-gray-200 shadow-xl w-[90vw]">
-                    {/* Expert Image */}
-                    {/* <div className="relative h-64 w-full mb-6 rounded-2xl overflow-hidden">
-                      <img
-                        src={expert.image}
-                        alt={expert.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                    </div> */}
-
                     {/* Header */}
                     <div className="flex items-start justify-between mb-4">
                       <div>
@@ -396,178 +374,96 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
           </div>
         </div>
 
-        {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-5 gap-12 items-center">
-          {/* Expert Images - Left Side */}
-          <div className="lg:col-span-2">
-            <div className="relative">
-              <div
-                className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl"
+        {/* Desktop Layout - Now showing all 3 cards in a row */}
+        <div className="hidden lg:block">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {t.experts.map((expert, index) => (
+              <div 
+                key={index}
+                className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
               >
-                {t.experts.map((expert, index) => (
-                  <div
-                    key={index}
-                    className={`absolute inset-0 transition-all duration-1000 ${
-                      index === activeExpert
-                        ? "opacity-100 scale-100"
-                        : "opacity-0 scale-110"
-                    }`}
-                  >
-                    <img
-                      src={expert.image}
-                      alt={expert.name}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                  </div>
-                ))}
-
-                {/* Navigation arrows */}
-                <button
-                  onClick={prevExpert}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 shadow-lg"
-                  aria-label={t.prevExpert}
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </button>
-
-                <button
-                  onClick={nextExpert}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 shadow-lg"
-                  aria-label={t.nextExpert}
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </button>
-              </div>
-
-              {/* Progress indicators */}
-              <div className="flex justify-center mt-6 space-x-2">
-                {t.experts.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToExpert(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === activeExpert ? "bg-blue-500 w-8" : "bg-gray-400"
-                    }`}
-                    aria-label={`Go to expert ${index + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Expert Details - Right Side */}
-          <div className="lg:col-span-3">
-            <div
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              {t.experts.map((expert, index) => (
-                <div
-                  key={index}
-                  className={`transition-all duration-1000 ${
-                    index === activeExpert
-                      ? "opacity-100 transform translate-x-0"
-                      : "opacity-0 transform translate-x-8 absolute inset-0"
-                  }`}
-                >
-                  <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-10 border border-gray-200 shadow-xl">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-8">
-                      <div>
-                        <h3 className="text-3xl font-bold text-gray-800 mb-2">
-                          {expert.name}
-                        </h3>
-                        <p className="text-blue-600 font-semibold text-lg">
-                          {expert.title}
-                        </p>
-                      </div>
-
-                      <div className="text-right">
-                        <div className="flex items-center justify-end mb-2">
-                          <Star className="w-5 h-5 text-yellow-500 fill-current mr-1" />
-                          <span className="text-gray-800 font-semibold">
-                            {expert.rating}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 text-sm">
-                          {expert.cases}{" "}
-                          {language === "en"
-                            ? "cases handled"
-                            : "håndterede sager"}
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Stats */}
-                    <div className="grid md:grid-cols-2 gap-6 mb-8">
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center mr-4">
-                          <BookOpen className="w-6 h-6 text-blue-600" />
-                        </div>
-                        <div>
-                          <p className="text-gray-600 text-sm">
-                            {language === "en" ? "Experience" : "Erfaring"}
-                          </p>
-                          <p className="text-gray-800 font-semibold">
-                            {expert.experience}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center">
-                        <div className="w-12 h-12 bg-purple-100 rounded-2xl flex items-center justify-center mr-4">
-                          <Users className="w-6 h-6 text-purple-600" />
-                        </div>
-                        <div>
-                          <p className="text-gray-600 text-sm">
-                            {language === "en"
-                              ? "Specialization"
-                              : "Specialisering"}
-                          </p>
-                          <p className="text-gray-800 font-semibold">
-                            {expert.specialization}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-gray-700 mb-8 leading-relaxed text-lg">
-                      {expert.description}
+                {/* Header */}
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      {expert.name}
+                    </h3>
+                    <p className="text-blue-600 font-semibold">
+                      {expert.title}
                     </p>
+                  </div>
 
-                    {/* Achievements */}
-                    <div className="mb-8">
-                      <h4 className="font-semibold text-gray-800 mb-4 flex items-center">
-                        <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                        {language === "en"
-                          ? "Key Achievements"
-                          : "Nøglepræstationer"}
-                      </h4>
-                      <div className="grid gap-3">
-                        {expert.achievements.map(
-                          (achievement, achievementIndex) => (
-                            <div
-                              key={achievementIndex}
-                              className="flex items-center"
-                            >
-                              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-4"></div>
-                              <span className="text-gray-700">
-                                {achievement}
-                              </span>
-                            </div>
-                          )
-                        )}
-                      </div>
+                  <div className="text-right">
+                    <div className="flex items-center justify-end mb-1">
+                      <Star className="w-5 h-5 text-yellow-500 fill-current mr-1" />
+                      <span className="text-gray-800 font-semibold">
+                        {expert.rating}
+                      </span>
+                    </div>
+                    <p className="text-gray-600 text-sm">
+                      {expert.cases}{" "}
+                      {language === "en" ? "cases handled" : "håndterede sager"}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className="grid gap-4 mb-6">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center mr-3">
+                      <BookOpen className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        {language === "en" ? "Experience" : "Erfaring"}
+                      </p>
+                      <p className="text-gray-800 font-semibold">
+                        {expert.experience}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center mr-3">
+                      <Users className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-gray-600 text-sm">
+                        {language === "en" ? "Specialization" : "Specialisering"}
+                      </p>
+                      <p className="text-gray-800 font-semibold">
+                        {expert.specialization}
+                      </p>
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                {/* Description */}
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  {expert.description}
+                </p>
+
+                {/* Achievements */}
+                <div>
+                  <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
+                    <Award className="w-5 h-5 text-yellow-500 mr-2" />
+                    {language === "en" ? "Key Achievements" : "Nøglepræstationer"}
+                  </h4>
+                  <div className="grid gap-2">
+                    {expert.achievements.map((achievement, achievementIndex) => (
+                      <div key={achievementIndex} className="flex items-center">
+                        <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                        <span className="text-gray-700 text-sm">
+                          {achievement}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
