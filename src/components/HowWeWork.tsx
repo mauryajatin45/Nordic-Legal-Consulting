@@ -131,9 +131,8 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
                       <div
                         className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl"
                         style={{
-                          background: `linear-gradient(135deg, ${
-                            step.color.split(" ")[1]
-                          }, ${step.color.split(" ")[3]})`,
+                          background: `linear-gradient(135deg, ${step.color.split(" ")[1]
+                            }, ${step.color.split(" ")[3]})`,
                         }}
                       ></div>
 
@@ -178,69 +177,56 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
         {/* Mobile/Tablet Layout - Vertical Flow */}
         <div className="lg:hidden">
           <div className="relative max-w-2xl mx-auto">
-            {/* Vertical Progress Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500  to-orange-500 rounded-full opacity-30"></div>
-
             <div className="space-y-12">
               {t.steps.map((step, index) => {
                 const IconComponent = step.icon;
 
                 return (
-                  <div key={index} className="relative flex items-start">
-                    {/* Step Number Circle */}
-                    <div className="relative z-10 flex-shrink-0">
-                      <div
-                        className={`w-16 h-16 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center shadow-lg border-4 border-white`}
-                      >
-                        <span className="text-white font-bold">
-                          {step.number}
-                        </span>
-                      </div>
-                    </div>
-
+                  <div key={index} className="relative">
                     {/* Step Card */}
-                    <div className="ml-4 flex-1">
-                      <div className="group relative">
-                        <div
-                          className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl"
-                          style={{
-                            background: `linear-gradient(135deg, ${
-                              step.color.split(" ")[1]
+                    <div className="group relative">
+                      {/* Background glow on hover */}
+                      <div
+                        className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl"
+                        style={{
+                          background: `linear-gradient(135deg, ${step.color.split(" ")[1]
                             }, ${step.color.split(" ")[3]})`,
-                          }}
-                        ></div>
+                        }}
+                      ></div>
 
-                        <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-500 group-hover:transform group-hover:scale-105">
-                          <div className="flex items-start gap-4">
-                            {/* Icon */}
-                            <div
-                              className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${step.color} flex items-center justify-center flex-shrink-0 shadow-lg`}
-                            >
-                              <IconComponent className="w-6 h-6 text-white" />
-                            </div>
+                      {/* Card Container */}
+                      <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-500 group-hover:transform group-hover:scale-105">
+                        <div className="flex items-start gap-4">
+                          {/* Icon + Step Number */}
+                          <div
+                            className={`w-14 h-14 rounded-full bg-gradient-to-r ${step.color} flex flex-col items-center justify-center shadow-lg flex-shrink-0`}
+                          >
+                            <IconComponent className="w-5 h-5 text-white mb-0.5" />
+                            <span className="text-[11px] text-white font-semibold">
+                              {step.number}
+                            </span>
+                          </div>
 
-                            {/* Content */}
-                            <div className="flex-1">
-                              <h3 className="text-lg font-bold text-gray-800 mb-3 leading-tight">
-                                {step.title}
-                              </h3>
-
-                              <p className="text-gray-600 leading-relaxed text-sm">
-                                {step.description}
-                              </p>
-                            </div>
+                          {/* Title + Description */}
+                          <div className="flex-1">
+                            <h3 className="text-base font-bold text-gray-800 mb-2 leading-tight">
+                              {step.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {step.description}
+                            </p>
                           </div>
                         </div>
                       </div>
                     </div>
-
-                    
                   </div>
                 );
               })}
             </div>
           </div>
         </div>
+
+
 
         {/* Call to Action */}
         <div className="text-center mt-16">

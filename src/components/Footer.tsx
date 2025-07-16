@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           <div className="lg:col-span-1">
             <div className="mb-6">
               <img
-                src="/image.png"
+                src="/TransparentLogo.png"
                 alt="Nordic Legal Consulting"
                 className="h-12 w-auto mb-4"
               />
