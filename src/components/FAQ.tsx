@@ -111,36 +111,36 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <h2 className="relative inline-block text-5xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="relative inline-block text-4xl md:text-5xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </h2>
           </div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             {t.subtitle}
           </p>
         </div>
 
-        {/* Responsive layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 px-2">
+        {/* Responsive FAQ grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 px-2">
           {t.faqs.map((faq, index) => (
             <div key={index} className="group">
               <div className="bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 overflow-hidden hover:border-gray-300 hover:shadow-lg transition-all duration-300">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-5 text-left flex items-start justify-between gap-4 hover:bg-gray-50/50 transition-all duration-300"
+                  className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between gap-3 hover:bg-gray-50/50 transition-all duration-300"
                 >
-                  <h3 className="flex-1 text-lg font-semibold text-gray-800 leading-tight">
+                  <h3 className="flex-1 text-base sm:text-lg font-semibold text-gray-800 text-left">
                     {faq.question}
                   </h3>
                   <div
-                    className={`flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center transition-transform duration-300 ${
+                    className={`flex-shrink-0 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center transition-transform duration-300 ${
                       openIndex === index ? "rotate-180" : ""
                     }`}
                   >
                     {openIndex === index ? (
-                      <ChevronUp className="w-4 h-4 text-white" />
+                      <ChevronUp className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                     ) : (
-                      <ChevronDown className="w-4 h-4 text-white" />
+                      <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                     )}
                   </div>
                 </button>
@@ -152,9 +152,9 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-6 pb-5">
-                    <div className="border-t border-gray-200 pt-4">
-                      <p className="text-gray-700 leading-relaxed">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-5">
+                    <div className="border-t border-gray-200 pt-3 sm:pt-4">
+                      <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
