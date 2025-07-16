@@ -16,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
       followUs: "Follow Us",
       copyright: "© 2024 Nordic Legal Consulting. All rights reserved.",
       links: [
-        { label: "About Us", href: "#about" },
+        { label: "About Us", href: "/about" },
         { label: "Our Experts", href: "#experts" },
         { label: "Blog", href: "#blog" },
       ],
@@ -36,10 +36,9 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
       copyright:
         "© 2024 Nordic Legal Consulting. Alle rettigheder forbeholdes.",
       links: [
-        { label: "Om Os", href: "#about" },
+        { label: "Om Os", href: "/about" },
         { label: "Vores Eksperter", href: "#experts" },
         { label: "Blog", href: "#blog" },
-        { label: "Privatlivspolitik", href: "#privacy" },
       ],
       serviceLinks: [
         { label: "Familiesammenføring", href: "#services" },
@@ -137,7 +136,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold">{t.contact}</h3>
-            <div className="space-y-4">
+            <div className="space-y-4 mt-4">
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-blue-400 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-300">

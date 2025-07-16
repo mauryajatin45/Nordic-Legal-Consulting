@@ -101,65 +101,71 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
-            <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 mt-4"></span>
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="overflow-x-auto">
-          <div className="flex space-x-6 pb-4" style={{ width: "max-content" }}>
-            {t.posts.map((post, index) => (
-              <div
-                key={index}
-                className="w-80 bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-300 overflow-hidden group flex-shrink-0"
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="flex items-center text-sm text-gray-500 mb-3">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    <span className="mr-4">{post.date}</span>
-                    <Clock className="w-4 h-4 mr-2" />
-                    <span>{post.readTime}</span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-gray-800 mb-3 line-clamp-2">
-                    {post.title}
-                  </h3>
-
-                  <p className="text-gray-600 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-
-                  <a href={
-                    post.title === "New Changes to Danish Family Reunification Laws 2024" || post.title === "Nye Ændringer til Danske Familiesammenføringslove 2024"
-                      ? "/blogs/family-reunification"
-                      : post.title === "Complete Guide to EU Blue Card Applications" || post.title === "Komplet Guide til EU Blåkort Ansøgninger"
-                      ? "/blogs/eu-blue-card"
-                      : post.title === "Understanding Danish Immigration Point System" || post.title === "Forståelse af Dansk Immigration Pointsystem"
-                      ? "/blogs/immigration-points"
-                      : "#"
-                  } className="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 group">
-                    {t.readMore}
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                  </a>
+        <div className="flex flex-wrap justify-center gap-8">
+          {t.posts.map((post, index) => (
+            <div
+              key={index}
+              className="w-80 bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 hover:border-gray-300 hover:shadow-xl transition-all duration-300 overflow-hidden"
+            >
+              <div className="relative overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    {post.category}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
+
+              <div className="p-6">
+                <div className="flex items-center text-sm text-gray-500 mb-3">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span className="mr-4">{post.date}</span>
+                  <Clock className="w-4 h-4 mr-2" />
+                  <span>{post.readTime}</span>
+                </div>
+
+                <h3 className="text-lg font-bold text-gray-800 mb-3 line-clamp-2">
+                  {post.title}
+                </h3>
+
+                <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+
+                <a
+                  href={
+                    post.title === "New Changes to Danish Family Reunification Laws 2024" ||
+                    post.title ===
+                      "Nye Ændringer til Danske Familiesammenføringslove 2024"
+                      ? "/blogs/family-reunification"
+                      : post.title ===
+                          "Complete Guide to EU Blue Card Applications" ||
+                        post.title ===
+                          "Komplet Guide til EU Blåkort Ansøgninger"
+                      ? "/blogs/eu-blue-card"
+                      : post.title ===
+                          "Understanding Danish Immigration Point System" ||
+                        post.title ===
+                          "Forståelse af Dansk Immigration Pointsystem"
+                      ? "/blogs/immigration-points"
+                      : "#"
+                  }
+                  className="flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 group"
+                >
+                  {t.readMore}
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

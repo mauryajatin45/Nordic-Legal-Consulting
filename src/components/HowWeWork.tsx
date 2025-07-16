@@ -131,8 +131,9 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
                       <div
                         className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl"
                         style={{
-                          background: `linear-gradient(135deg, ${step.color.split(" ")[1]
-                            }, ${step.color.split(" ")[3]})`,
+                          background: `linear-gradient(135deg, ${
+                            step.color.split(" ")[1]
+                          }, ${step.color.split(" ")[3]})`,
                         }}
                       ></div>
 
@@ -189,8 +190,9 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
                       <div
                         className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-3xl blur-xl"
                         style={{
-                          background: `linear-gradient(135deg, ${step.color.split(" ")[1]
-                            }, ${step.color.split(" ")[3]})`,
+                          background: `linear-gradient(135deg, ${
+                            step.color.split(" ")[1]
+                          }, ${step.color.split(" ")[3]})`,
                         }}
                       ></div>
 
@@ -226,14 +228,14 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
           </div>
         </div>
 
-
-
         {/* Call to Action */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300">
-            <span>Ready to get started?</span>
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </div>
+          <a href="/#contact">
+            <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+              <span>Ready to get started?</span>
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </div>
+          </a>
         </div>
       </div>
     </section>

@@ -14,8 +14,8 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
   const navItems = [
     { label: language === 'en' ? 'About Us' : 'Om Os', href: '/about' },
-    { label: language === 'en' ? 'Experts' : 'Eksperter', href: '#experts' },
     { label: language === 'en' ? 'Services' : 'Tjenester', href: '#services' },
+    { label: language === 'en' ? 'Experts' : 'Eksperter', href: '#experts' },
     { label: 'FAQs', href: '#faqs' },
     { label: language === 'en' ? 'Contact' : 'Kontakt', href: '#contact' },
   ];
@@ -42,7 +42,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-            <img src="/image.png" alt="Nordic Legal Consulting" className="h-10 w-auto" />
+            <img src="/image.png" alt="Nordic Legal Consulting" className="h-14 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

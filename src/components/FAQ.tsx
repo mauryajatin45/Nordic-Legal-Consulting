@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface FAQProps {
   language: string;
@@ -111,9 +111,6 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mr-4">
-              <HelpCircle className="w-8 h-8 text-white" />
-            </div>
             <h2 className="relative inline-block text-5xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </h2>
@@ -123,16 +120,16 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* Two-column layout for desktop */}
-        <div className="grid lg:grid-cols-2 gap-8">
+        {/* Responsive layout */}
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-6 px-2">
           {t.faqs.map((faq, index) => (
             <div key={index} className="group">
               <div className="bg-white/80 backdrop-blur-xl rounded-2xl border border-gray-200 overflow-hidden hover:border-gray-300 hover:shadow-lg transition-all duration-300">
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-all duration-300"
+                  className="w-full px-6 py-5 text-left flex items-start justify-between gap-4 hover:bg-gray-50/50 transition-all duration-300"
                 >
-                  <h3 className="text-lg font-semibold text-gray-800 pr-4 leading-tight">
+                  <h3 className="flex-1 text-lg font-semibold text-gray-800 leading-tight">
                     {faq.question}
                   </h3>
                   <div
@@ -155,7 +152,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
                       : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="px-8 pb-6">
+                  <div className="px-6 pb-5">
                     <div className="border-t border-gray-200 pt-4">
                       <p className="text-gray-700 leading-relaxed">
                         {faq.answer}
