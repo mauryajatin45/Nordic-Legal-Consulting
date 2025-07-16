@@ -128,7 +128,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           <p className="text-base sm:text-lg md:text-xl text-white/90">
             {t.subtitle}
           </p>
-          <p className="text-sm sm:text-base md:text-lg">
+          <p className=" !mt-0 text-sm sm:text-base md:text-lg">
             {t.cta}
           </p>
         </motion.div>

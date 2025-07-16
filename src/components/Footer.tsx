@@ -60,9 +60,9 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
               <img
                 src="/TransparentLogo.png"
                 alt="Nordic Legal Consulting"
-                className="h-12 w-auto mb-4"
+                className="h-12 w-auto mb-1"
               />
-              <p className="text-gray-300 leading-relaxed">{t.description}</p>
+              <p className=" text-gray-300 leading-relaxed">{t.description}</p>
             </div>
 
             <div className="flex space-x-4">
