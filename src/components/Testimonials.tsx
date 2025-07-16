@@ -15,7 +15,7 @@ const timerRef = useRef<any>(null);
     en: {
       title: "WHAT OUR CLIENTS SAY",
       subtitle:
-        "Real experiences from families we've helped reunite in Denmark",
+        "Real Experiences From Families We've Helped Reunite In Denmark",
       testimonials: [
         {
           name: "Ahmed Hassan",
@@ -67,7 +67,7 @@ const timerRef = useRef<any>(null);
     da: {
       title: "HVAD VORES KLIENTER SIGER",
       subtitle:
-        "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
+        "Virkelige Oplevelser Fra Familier, Vi Har Hjulpet Med At Genforenes I Danmark",
       testimonials: [
         {
           name: "Ahmed Hassan",

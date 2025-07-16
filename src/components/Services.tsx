@@ -10,7 +10,7 @@ const Services: React.FC<ServicesProps> = ({ language, onGetStarted }) => {
     en: {
       title: "OUR SERVICES",
       subtitle:
-        "Comprehensive immigration legal services tailored to your needs",
+        "Comprehensive Immigration Legal Services Tailored to Your Needs",
       getStarted: "GET STARTED",
       services: [
         {
@@ -56,7 +56,7 @@ const Services: React.FC<ServicesProps> = ({ language, onGetStarted }) => {
     da: {
       title: "VORES TJENESTER",
       subtitle:
-        "Omfattende immigrations juridiske tjenester skræddersyet til dine behov",
+        "Omfattende Immigrations Juridiske Tjenester Skræddersyet Til Dine Behov",
       getStarted: "KOM I GANG",
       services: [
         {
