@@ -166,7 +166,7 @@ const content = {
             >
               {t.testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-12 border border-gray-200 relative shadow-xl">
+                  <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 relative shadow-xl">
                     {/* Quote icon */}
                     {/* <div className="absolute -top-6 left-12">
                       <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
@@ -211,7 +211,7 @@ const content = {
 
                       {/* Testimonial text */}
                       <div className="lg:col-span-2">
-                        <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed">
+                        <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed text-center">
                           "{testimonial.text}"
                         </blockquote>
                       </div>
