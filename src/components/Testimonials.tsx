@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface TestimonialsProps {
@@ -7,133 +7,163 @@ interface TestimonialsProps {
 
 const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [userInteracted, setUserInteracted] = useState(false);
+const timerRef = useRef<any>(null);
 
-const content = {
-  en: {
-    title: "WHAT OUR CLIENTS SAY",
-    subtitle:
-      "Real experiences from families we've helped reunite in Denmark",
-    testimonials: [
-      {
-        name: "Ahmed Hassan",
-        country: "Egypt",
-        case: "Family Reunification",
-        rating: 5,
-        text: "Nordic Legal Consulting made our family reunification process smooth and stress-free. Thomas guided us through every step and we got approved in just 8 months. Highly recommended!",
-        image:
-          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Carlos Martinez",
-        country: "Spain",
-        case: "EU Blue Card",
-        rating: 5,
-        text: "Professional, knowledgeable, and always available to answer questions. Lars helped me get my EU Blue Card approved quickly. The service exceeded my expectations.",
-        image:
-          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Raj Patel",
-        country: "India",
-        case: "Student Visa",
-        rating: 5,
-        text: "Jonas was incredibly helpful with my student visa application. He explained everything clearly and helped me gather all the necessary documents. Got approved on first try!",
-        image:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Milos Popovic",
-        country: "Serbia",
-        case: "Work Permit",
-        rating: 5,
-        text: "Excellent service from start to finish. The team was professional, responsive, and made the complex immigration process much easier to understand and navigate.",
-        image:
-          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Chen Wei",
-        country: "China",
-        case: "Family Reunification",
-        rating: 5,
-        text: "After being rejected once by another lawyer, Nordic Legal Consulting helped us reapply successfully. Their attention to detail and expertise made all the difference.",
-        image:
-          "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-    ],
-  },
-  da: {
-    title: "HVAD VORES KLIENTER SIGER",
-    subtitle:
-      "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
-    testimonials: [
-      {
-        name: "Ahmed Hassan",
-        country: "Egypten",
-        case: "Familiesammenføring",
-        rating: 5,
-        text: "Nordic Legal Consulting gjorde vores familiesammenføringsproces glat og stressfri. Thomas guidede os gennem hvert trin, og vi blev godkendt på kun 8 måneder. Stærkt anbefalet!",
-        image:
-          "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Carlos Martinez",
-        country: "Spanien",
-        case: "EU Blåkort",
-        rating: 5,
-        text: "Professionel, vidende og altid tilgængelig til at besvare spørgsmål. Lars hjalp mig med at få mit EU Blåkort godkendt hurtigt. Servicen overgik mine forventninger.",
-        image:
-          "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Raj Patel",
-        country: "Indien",
-        case: "Studievisa",
-        rating: 5,
-        text: "Jonas var utrolig hjælpsom med min studievisa-ansøgning. Han forklarede alt klart og hjalp mig med at samle alle nødvendige dokumenter. Blev godkendt på første forsøg!",
-        image:
-          "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Milos Popovic",
-        country: "Serbien",
-        case: "Arbejdstilladelse",
-        rating: 5,
-        text: "Fremragende service fra start til slut. Teamet var professionelt, lydhørt og gjorde den komplekse immigrationsproces meget lettere at forstå og navigere.",
-        image:
-          "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-      {
-        name: "Chen Wei",
-        country: "Kina",
-        case: "Familiesammenføring",
-        rating: 5,
-        text: "Efter at være blevet afvist en gang af en anden advokat, hjalp Nordic Legal Consulting os med at genansøge med succes. Deres opmærksomhed på detaljer og ekspertise gjorde hele forskellen.",
-        image:
-          "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
-      },
-    ],
-  },
-};
-
+  const content = {
+    en: {
+      title: "WHAT OUR CLIENTS SAY",
+      subtitle:
+        "Real experiences from families we've helped reunite in Denmark",
+      testimonials: [
+        {
+          name: "Ahmed Hassan",
+          country: "Egypt",
+          case: "Family Reunification",
+          rating: 5,
+          text: "Nordic Legal Consulting made our family reunification process smooth and stress-free. Thomas guided us through every step and we got approved in just 8 months. Highly recommended!",
+          image:
+            "https://ceocoachinginternational.com/wp-content/uploads/2023/04/Ahmed-Hassan.jpeg",
+        },
+        {
+          name: "Carlos Martinez",
+          country: "Spain",
+          case: "EU Blue Card",
+          rating: 5,
+          text: "Professional, knowledgeable, and always available to answer questions. Lars helped me get my EU Blue Card approved quickly. The service exceeded my expectations.",
+          image:
+            "https://images.ecestaticos.com/0j2qXjHVZMK01nXxEBIRkFSGkzQ=/0x0:762x483/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fb3f%2Fa52%2F543%2Fb3fa52543db3bdbd149288be96cd1885.jpg",
+        },
+        {
+          name: "Raj Patel",
+          country: "India",
+          case: "Student Visa",
+          rating: 5,
+          text: "Jonas was incredibly helpful with my student visa application. He explained everything clearly and helped me gather all the necessary documents. Got approved on first try!",
+          image:
+            "https://ipes-food.org/wp-content/uploads/2024/02/1679499423_big.jpg",
+        },
+        {
+          name: "Milos Popovic",
+          country: "Serbia",
+          case: "Work Permit",
+          rating: 5,
+          text: "Excellent service from start to finish. The team was professional, responsive, and made the complex immigration process much easier to understand and navigate.",
+          image:
+            "https://www.ece.utoronto.ca/wp-content/uploads/2012/11/M_Popovic_t2QT28ca_400x400.jpg",
+        },
+        {
+          name: "Chen Wei",
+          country: "China",
+          case: "Family Reunification",
+          rating: 5,
+          text: "After being rejected once by another lawyer, Nordic Legal Consulting helped us reapply successfully. Their attention to detail and expertise made all the difference.",
+          image:
+            "https://dam.upmc.com/-/media/chp/research/images/researchers/chen_wei_160422.jpg?rev=c6241b81ab9a4ca38b178bbd58d336b0",
+        },
+      ],
+    },
+    da: {
+      title: "HVAD VORES KLIENTER SIGER",
+      subtitle:
+        "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
+      testimonials: [
+        {
+          name: "Ahmed Hassan",
+          country: "Egypten",
+          case: "Familiesammenføring",
+          rating: 5,
+          text: "Nordic Legal Consulting gjorde vores familiesammenføringsproces glat og stressfri. Thomas guidede os gennem hvert trin, og vi blev godkendt på kun 8 måneder. Stærkt anbefalet!",
+          image:
+            "https://ceocoachinginternational.com/wp-content/uploads/2023/04/Ahmed-Hassan.jpeg",
+        },
+        {
+          name: "Carlos Martinez",
+          country: "Spanien",
+          case: "EU Blåkort",
+          rating: 5,
+          text: "Professionel, vidende og altid tilgængelig til at besvare spørgsmål. Lars hjalp mig med at få mit EU Blåkort godkendt hurtigt. Servicen overgik mine forventninger.",
+          image:
+            "https://images.ecestaticos.com/0j2qXjHVZMK01nXxEBIRkFSGkzQ=/0x0:762x483/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fb3f%2Fa52%2F543%2Fb3fa52543db3bdbd149288be96cd1885.jpg",
+        },
+        {
+          name: "Raj Patel",
+          country: "Indien",
+          case: "Studievisa",
+          rating: 5,
+          text: "Jonas var utrolig hjælpsom med min studievisa-ansøgning. Han forklarede alt klart og hjalp mig med at samle alle nødvendige dokumenter. Blev godkendt på første forsøg!",
+          image:
+            "https://ipes-food.org/wp-content/uploads/2024/02/1679499423_big.jpg",
+        },
+        {
+          name: "Milos Popovic",
+          country: "Serbien",
+          case: "Arbejdstilladelse",
+          rating: 5,
+          text: "Fremragende service fra start til slut. Teamet var professionelt, lydhørt og gjorde den komplekse immigrationsproces meget lettere at forstå og navigere.",
+          image:
+            "https://www.ece.utoronto.ca/wp-content/uploads/2012/11/M_Popovic_t2QT28ca_400x400.jpg",
+        },
+        {
+          name: "Chen Wei",
+          country: "Kina",
+          case: "Familiesammenføring",
+          rating: 5,
+          text: "Efter at være blevet afvist en gang af en anden advokat, hjalp Nordic Legal Consulting os med at genansøge med succes. Deres opmærksomhed på detaljer og ekspertise gjorde hele forskellen.",
+          image:
+            "https://dam.upmc.com/-/media/chp/research/images/researchers/chen_wei_160422.jpg?rev=c6241b81ab9a4ca38b178bbd58d336b0",
+        },
+      ],
+    },
+  };
 
   const t = content[language as keyof typeof content];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % t.testimonials.length);
+  const startTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+    timerRef.current = setInterval(() => {
+      if (!isHovered) {
+        setCurrentIndex((prev) => (prev + 1) % t.testimonials.length);
+      }
     }, 5000);
+  };
 
-    return () => clearInterval(interval);
-  }, [t.testimonials.length]);
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [t.testimonials.length, isHovered]);
 
   const nextTestimonial = () => {
+    setUserInteracted(true);
     setCurrentIndex((prev) => (prev + 1) % t.testimonials.length);
+    startTimer();
   };
 
   const prevTestimonial = () => {
+    setUserInteracted(true);
     setCurrentIndex(
       (prev) => (prev - 1 + t.testimonials.length) % t.testimonials.length
     );
+    startTimer();
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    startTimer();
   };
 
   return (
@@ -150,14 +180,17 @@ const content = {
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
-            {/* <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 mt-4"></span> */}
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
 
-        <div className="relative max-w-5xl mx-auto">
+        <div 
+          className="relative max-w-5xl mx-auto"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           {/* Main testimonial display */}
           <div className="relative overflow-hidden rounded-3xl">
             <div
@@ -167,13 +200,6 @@ const content = {
               {t.testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
                   <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 relative shadow-xl">
-                    {/* Quote icon */}
-                    {/* <div className="absolute -top-6 left-12">
-                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
-                        <Quote className="w-6 h-6 text-white" />
-                      </div>
-                    </div> */}
-
                     <div className="grid lg:grid-cols-3 gap-8 items-center">
                       {/* Client photo and info */}
                       <div className="text-center lg:text-left">
@@ -227,6 +253,7 @@ const content = {
             <button
               onClick={prevTestimonial}
               className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 border border-gray-200 shadow-lg"
+              aria-label={language === 'en' ? 'Previous testimonial' : 'Forrige anbefaling'}
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -236,12 +263,17 @@ const content = {
               {t.testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentIndex(index)}
+                  onClick={() => {
+                    setCurrentIndex(index);
+                    setUserInteracted(true);
+                    startTimer();
+                  }}
                   className={`transition-all duration-300 ${
                     index === currentIndex
                       ? "w-8 h-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
                       : "w-3 h-3 bg-gray-400 rounded-full hover:bg-gray-500"
                   }`}
+                  aria-label={`Go to testimonial ${index + 1}`}
                 />
               ))}
             </div>
@@ -249,6 +281,7 @@ const content = {
             <button
               onClick={nextTestimonial}
               className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 border border-gray-200 shadow-lg"
+              aria-label={language === 'en' ? 'Next testimonial' : 'Næste anbefaling'}
             >
               <ChevronRight className="w-6 h-6" />
             </button>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot, User } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 
@@ -18,6 +18,8 @@ const ChatBot: React.FC<ChatBotProps> = ({ language }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const content = {
     en: {
@@ -39,6 +41,38 @@ const ChatBot: React.FC<ChatBotProps> = ({ language }) => {
   };
 
   const t = content[language as keyof typeof content];
+
+  useEffect(() => {
+    // Scroll to bottom when messages change
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      if (!isOpen || !chatContainerRef.current) return;
+      
+      // Check if the mouse is inside the chat container
+      const chatContainer = chatContainerRef.current;
+      const isInsideChat = chatContainer.contains(e.target as Node);
+      
+      if (isInsideChat) {
+        // Prevent page scrolling when scrolling inside the chat
+        e.preventDefault();
+        
+        // Calculate scroll direction and amount
+        const scrollAmount = e.deltaY;
+        chatContainer.scrollTop += scrollAmount;
+      }
+    };
+
+    // Add event listener
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      // Clean up event listener
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [isOpen]);
 
   const initializeGemini = () => {
     try {
@@ -218,7 +252,10 @@ const ChatBot: React.FC<ChatBotProps> = ({ language }) => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-80 h-96 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-50">
+        <div 
+          ref={chatContainerRef}
+          className="fixed bottom-6 right-6 w-80 h-96 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-200 flex flex-col z-50"
+        >
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center">
@@ -267,6 +304,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ language }) => {
                 </div>
               </div>
             ))}
+            <div ref={messagesEndRef} />
           </div>
 
           {/* Input */}

@@ -96,7 +96,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <h1 className="text-6xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="h-20 text-6xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {t.title}
           </h1>
           <p className="text-2xl text-gray-600 mb-2">{t.subtitle}</p>
@@ -144,9 +144,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
             </p>
             
             <div className="flex items-center space-x-4">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
+              {/* <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
                 {t.contactUs}
-              </button>
+              </button> */}
               
               <div className="flex items-center space-x-4 text-gray-600">
                 <div className="flex items-center">
@@ -169,13 +169,13 @@ const About: React.FC<AboutProps> = ({ language }) => {
             {t.values.map((value, index) => {
               const IconComponent = value.icon;
               return (
-                <div key={index} className="text-center">
-                  <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105">
+                <div key={index} className="flex flex-col h-full">
+                  <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:transform hover:scale-105 flex flex-col h-full">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-4">{value.title}</h4>
-                    <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                    <h4 className="text-xl font-bold text-gray-800 mb-4 text-center">{value.title}</h4>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-center">{value.description}</p>
                   </div>
                 </div>
               );
