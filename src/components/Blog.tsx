@@ -10,7 +10,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
     en: {
       title: "LATEST IMMIGRATION NEWS & INSIGHTS",
       subtitle:
-        "Stay Updated With The Latest Immigration Law Changes And Guides",
+        "Stay updated with the latest immigration law changes and guides",
       readMore: "Read More",
       posts: [
         {
@@ -48,7 +48,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
     da: {
       title: "SENESTE IMMIGRATION NYHEDER & INDSIGTER",
       subtitle:
-        "Hold Dig Opdateret Med De Seneste Ændringer I Immigrationslovgivningen Og Nyttige Guides",
+        "Hold dig opdateret med de seneste ændringer i immigrationslovgivningen og nyttige guides",
       readMore: "Læs Mere",
       posts: [
         {

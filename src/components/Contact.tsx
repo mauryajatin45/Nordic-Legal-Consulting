@@ -32,7 +32,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
   const content = {
     en: {
       title: "CONTACT US",
-      subtitle: "Get In Touch With Our Immigration Experts Today",
+      subtitle: "Get in touch with our immigration experts today",
       formTitle: "Send us a message",
       name: "Full Name",
       email: "Email Address",
@@ -59,7 +59,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
     },
     da: {
       title: "KONTAKT OS",
-      subtitle: "Kom I Kontakt Med Vores Immigrationseksperter I Dag",
+      subtitle: "Kom i kontakt med vores immigrationseksperter i dag",
       formTitle: "Send os en besked",
       name: "Fulde Navn",
       email: "Email Adresse",

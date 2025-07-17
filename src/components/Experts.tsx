@@ -24,7 +24,7 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
   const content = {
     en: {
       title: "OUR LEGAL EXPERTS",
-      subtitle: "Meet Our Experienced Emmigration Lawyers",
+      subtitle: "Meet our experienced emmigration lawyers",
       viewProfile: "View Full Profile",
       nextExpert: "Next Expert",
       prevExpert: "Previous Expert",
@@ -78,7 +78,7 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
     },
     da: {
       title: "VORES JURIDISKE EKSPERTER",
-      subtitle: "Mød Vores Erfarne Immigrationsadvokater",
+      subtitle: "Mød vores erfarne immigrationsadvokater",
       viewProfile: "Se Fuld Profil",
       nextExpert: "Næste Ekspert",
       prevExpert: "Forrige Ekspert",

@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     },
     da: {
       description:
-        "Ekspert immigration juridiske tjenester for Danmark, Sverige og Tyskland. Vi hjælper familier med at genforenes og enkeltpersoner med at opnå deres immigrationsmål med professionel vejledning og støtte.",
+        "Vi hjælper familier med at blive genforenet i Danmark, Sverige eller Tyskland. Hos os får du personlig og kompetent rådgivning om familiesammenføring efter EU-retten.",
       quickLinks: "Hurtige Links",
       services: "Tjenester",
       contact: "Kontakt Info",

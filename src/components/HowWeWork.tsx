@@ -15,7 +15,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
   const content = {
     en: {
       title: "HOW WE WORK",
-      subtitle: "Our Streamlined Process to Get You Started",
+      subtitle: "Our streamlined process to get you started",
       steps: [
         {
           number: "01",
@@ -53,7 +53,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
     },
     da: {
       title: "SÅDAN ARBEJDER VI",
-      subtitle: "Vores Strømlinede Proces For At Få Dig I Gang",
+      subtitle: "Vores strømlinede proces for at få dig i gang",
       steps: [
         {
           number: "01",

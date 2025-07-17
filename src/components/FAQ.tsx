@@ -12,7 +12,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
     en: {
       title: "FREQUENTLY ASKED QUESTIONS",
       subtitle:
-        "Find Answers To The Most Common Questions About Immigration To Denmark",
+        "Find answers to the most common questions about immigration to Denmark",
       faqs: [
         {
           question: "How long does the family reunification process take?",
@@ -53,7 +53,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
     da: {
       title: "OFTE STILLEDE SPØRGSMÅL",
       subtitle:
-        "Find Svar På De Mest Almindelige Spørgsmål Om Immigration Til Danmark",
+        "Find svar på de mest almindelige spørgsmål om immigration til Danmark",
       faqs: [
         {
           question: "Hvor lang tid tager familiesammenføringsprocessen?",
