@@ -1,5 +1,5 @@
-import React from 'react';
-import { Users, Scale, Heart, Award, Phone, Mail } from 'lucide-react';
+import React from "react";
+import { Users, Scale, Heart, Award, Phone, Mail } from "lucide-react";
 
 interface AboutProps {
   language: string;
@@ -12,75 +12,84 @@ const About: React.FC<AboutProps> = ({ language }) => {
       subtitle: "WHO ARE WE?",
       sectionTitle: "Lawyers",
       aboutTitle: "About Nordic Legal Consulting",
-      description: "At Nordic Legal Consulting, we are a team of experienced legal professionals specializing in family reunification and Schengen visas for spouses. We provide targeted and competent legal advice — no matter where in Denmark you are located.",
-      description2: "We work digitally and efficiently, offering high-quality legal support at a fair price. Our focus is always on expertise, transparency, and personal service, ensuring that you feel secure throughout the entire process.",
+      description:
+        "At Nordic Legal Consulting, we are a team of experienced legal professionals specializing in family reunification and Schengen visas for spouses. We provide targeted and competent legal advice — no matter where in Denmark you are located.",
+      description2:
+        "We work digitally and efficiently, offering high-quality legal support at a fair price. Our focus is always on expertise, transparency, and personal service, ensuring that you feel secure throughout the entire process.",
       contactUs: "Contact us",
       stats: [
         { number: "500+", label: "Successful Cases" },
         { number: "15+", label: "Years Experience" },
         { number: "3", label: "Countries Covered" },
-        { number: "98%", label: "Success Rate" }
+        { number: "98%", label: "Success Rate" },
       ],
       values: [
         {
           icon: Scale,
           title: "Legal Expertise",
-          description: "Specialized knowledge in family reunification and EU immigration law"
+          description:
+            "Specialized knowledge in family reunification and EU immigration law",
         },
         {
           icon: Heart,
           title: "Personal Service",
-          description: "Dedicated support throughout your entire immigration journey"
+          description:
+            "Dedicated support throughout your entire immigration journey",
         },
         {
           icon: Users,
           title: "Digital Efficiency",
-          description: "Modern, streamlined processes for faster results"
+          description: "Modern, streamlined processes for faster results",
         },
         {
           icon: Award,
           title: "Transparency",
-          description: "Clear communication and honest assessments at every step"
-        }
-      ]
+          description:
+            "Clear communication and honest assessments at every step",
+        },
+      ],
     },
     da: {
       title: "Nordic Legal Consulting",
       subtitle: "HVEM ER VI?",
       sectionTitle: "Advokater",
       aboutTitle: "Om Nordic Legal Consulting",
-      description: "Hos Nordic Legal Consulting er vi et team af erfarne juridiske fagfolk, der specialiserer sig i familiesammenføring og Schengen-visa til ægtefæller. Vi leverer målrettet og kompetent juridisk rådgivning — uanset hvor i Danmark du befinder dig.",
-      description2: "Vi arbejder digitalt og effektivt og tilbyder juridisk støtte af høj kvalitet til en fair pris. Vores fokus er altid på ekspertise, gennemsigtighed og personlig service, hvilket sikrer, at du føler dig tryg gennem hele processen.",
+      description:
+        "Hos Nordic Legal Consulting er vi et team af erfarne juridiske fagfolk, der specialiserer sig i familiesammenføring og Schengen-visa til ægtefæller. Vi leverer målrettet og kompetent juridisk rådgivning — uanset hvor i Danmark du befinder dig.",
+      description2:
+        "Vi arbejder digitalt og effektivt og tilbyder juridisk støtte af høj kvalitet til en fair pris. Vores fokus er altid på ekspertise, gennemsigtighed og personlig service, hvilket sikrer, at du føler dig tryg gennem hele processen.",
       contactUs: "Kontakt os",
       stats: [
         { number: "500+", label: "Succesfulde Sager" },
         { number: "15+", label: "Års Erfaring" },
         { number: "3", label: "Lande Dækket" },
-        { number: "98%", label: "Succesrate" }
+        { number: "98%", label: "Succesrate" },
       ],
       values: [
         {
           icon: Scale,
           title: "Juridisk Ekspertise",
-          description: "Specialiseret viden inden for familiesammenføring og EU-immigrationsret"
+          description:
+            "Specialiseret viden inden for familiesammenføring og EU-immigrationsret",
         },
         {
           icon: Heart,
           title: "Personlig Service",
-          description: "Dedikeret støtte gennem hele din immigrationsrejse"
+          description: "Dedikeret støtte gennem hele din immigrationsrejse",
         },
         {
           icon: Users,
           title: "Digital Effektivitet",
-          description: "Moderne, strømlinede processer for hurtigere resultater"
+          description:
+            "Moderne, strømlinede processer for hurtigere resultater",
         },
         {
           icon: Award,
           title: "Gennemsigtighed",
-          description: "Klar kommunikation og ærlige vurderinger på hvert trin"
-        }
-      ]
-    }
+          description: "Klar kommunikation og ærlige vurderinger på hvert trin",
+        },
+      ],
+    },
   };
 
   const t = content[language as keyof typeof content];
@@ -100,7 +109,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
             {t.title}
           </h1>
           <p className="text-2xl text-gray-600 mb-2">{t.subtitle}</p>
-          <p className="text-lg text-blue-600 font-semibold">{t.sectionTitle}</p>
+          <p className="text-lg text-blue-600 font-semibold">
+            {t.sectionTitle}
+          </p>
         </div>
 
         {/* Stats Section */}
@@ -135,19 +146,21 @@ const About: React.FC<AboutProps> = ({ language }) => {
 
           {/* Right side - Content */}
           <div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-8">{t.aboutTitle}</h2>
+            <h2 className="text-4xl font-bold text-gray-800 mb-8">
+              {t.aboutTitle}
+            </h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
               {t.description}
             </p>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
               {t.description2}
             </p>
-            
+
             <div className="flex items-center space-x-4">
               {/* <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
                 {t.contactUs}
               </button> */}
-              
+
               <div className="flex items-center space-x-4 text-gray-600">
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
@@ -164,7 +177,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
 
         {/* Values Section */}
         <div>
-          <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">Our Values</h3>
+          <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">
+            Our Values
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.values.map((value, index) => {
               const IconComponent = value.icon;
@@ -174,8 +189,12 @@ const About: React.FC<AboutProps> = ({ language }) => {
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-4 text-center">{value.title}</h4>
-                    <p className="text-gray-600 leading-relaxed flex-grow text-center">{value.description}</p>
+                    <h4 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                      {value.title}
+                    </h4>
+                    <p className="text-gray-600 leading-relaxed flex-grow text-center">
+                      {value.description}
+                    </p>
                   </div>
                 </div>
               );

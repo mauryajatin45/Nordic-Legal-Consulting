@@ -217,12 +217,12 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 lg:mb-20">
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-800 mb-4 lg:mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
           </h2>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
@@ -378,7 +378,7 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
         <div className="hidden lg:block">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {t.experts.map((expert, index) => (
-              <div 
+              <div
                 key={index}
                 className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300"
                 onMouseEnter={handleMouseEnter}
@@ -431,7 +431,9 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
                     </div>
                     <div>
                       <p className="text-gray-600 text-sm">
-                        {language === "en" ? "Specialization" : "Specialisering"}
+                        {language === "en"
+                          ? "Specialization"
+                          : "Specialisering"}
                       </p>
                       <p className="text-gray-800 font-semibold">
                         {expert.specialization}
@@ -449,17 +451,24 @@ const Experts: React.FC<ExpertsProps> = ({ language }) => {
                 <div>
                   <h4 className="font-semibold text-gray-800 mb-3 flex items-center">
                     <Award className="w-5 h-5 text-yellow-500 mr-2" />
-                    {language === "en" ? "Key Achievements" : "Nøglepræstationer"}
+                    {language === "en"
+                      ? "Key Achievements"
+                      : "Nøglepræstationer"}
                   </h4>
                   <div className="grid gap-2">
-                    {expert.achievements.map((achievement, achievementIndex) => (
-                      <div key={achievementIndex} className="flex items-center">
-                        <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
-                        <span className="text-gray-700 text-sm">
-                          {achievement}
-                        </span>
-                      </div>
-                    ))}
+                    {expert.achievements.map(
+                      (achievement, achievementIndex) => (
+                        <div
+                          key={achievementIndex}
+                          className="flex items-center"
+                        >
+                          <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mr-3"></div>
+                          <span className="text-gray-700 text-sm">
+                            {achievement}
+                          </span>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

@@ -102,10 +102,10 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="relative inline-block text-5xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
+          <h2 className="relative inline-block text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
             {t.title}
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>

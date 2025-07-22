@@ -9,7 +9,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [userInteracted, setUserInteracted] = useState(false);
-const timerRef = useRef<any>(null);
+  const timerRef = useRef<any>(null);
 
   const content = {
     en: {
@@ -176,17 +176,17 @@ const timerRef = useRef<any>(null);
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
 
-        <div 
+        <div
           className="relative max-w-5xl mx-auto"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
@@ -253,7 +253,11 @@ const timerRef = useRef<any>(null);
             <button
               onClick={prevTestimonial}
               className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 border border-gray-200 shadow-lg"
-              aria-label={language === 'en' ? 'Previous testimonial' : 'Forrige anbefaling'}
+              aria-label={
+                language === "en"
+                  ? "Previous testimonial"
+                  : "Forrige anbefaling"
+              }
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -281,7 +285,9 @@ const timerRef = useRef<any>(null);
             <button
               onClick={nextTestimonial}
               className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 hover:bg-white/90 transition-all duration-300 border border-gray-200 shadow-lg"
-              aria-label={language === 'en' ? 'Next testimonial' : 'Næste anbefaling'}
+              aria-label={
+                language === "en" ? "Next testimonial" : "Næste anbefaling"
+              }
             >
               <ChevronRight className="w-6 h-6" />
             </button>

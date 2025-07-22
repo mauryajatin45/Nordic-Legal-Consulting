@@ -111,11 +111,11 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
           <div className="flex items-center justify-center mb-6">
-            <h2 className="relative inline-block text-4xl md:text-5xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h2 className="relative inline-block text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </h2>
           </div>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>

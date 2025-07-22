@@ -88,7 +88,10 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
   const t = content[language as keyof typeof content];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden" id="blog">
+    <section
+      className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden"
+      id="blog"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 right-20 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
@@ -97,12 +100,12 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
@@ -138,11 +141,14 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                   {post.title}
                 </h3>
 
-                <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {post.excerpt}
+                </p>
 
                 <a
                   href={
-                    post.title === "New Changes to Danish Family Reunification Laws 2024" ||
+                    post.title ===
+                      "New Changes to Danish Family Reunification Laws 2024" ||
                     post.title ===
                       "Nye Ændringer til Danske Familiesammenføringslove 2024"
                       ? "/blogs/family-reunification"

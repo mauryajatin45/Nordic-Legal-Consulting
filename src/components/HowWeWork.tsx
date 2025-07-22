@@ -16,6 +16,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
     en: {
       title: "HOW WE WORK",
       subtitle: "Our streamlined process to get you started",
+      Btn: "Ready to get started?",
       steps: [
         {
           number: "01",
@@ -54,6 +55,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
     da: {
       title: "SÅDAN ARBEJDER VI",
       subtitle: "Vores strømlinede proces for at få dig i gang",
+      Btn: "Klar til at komme i gang?",
       steps: [
         {
           number: "01",
@@ -103,13 +105,13 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
             {/* <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 mt-4"></span> */}
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>
@@ -232,7 +234,7 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
         <div className="text-center mt-16">
           <a href="/#contact">
             <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl text-white font-semibold shadow-lg hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 cursor-pointer">
-              <span>Ready to get started?</span>
+              <span>{t.Btn}</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </div>
           </a>
