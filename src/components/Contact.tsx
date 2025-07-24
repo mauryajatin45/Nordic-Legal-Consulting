@@ -43,10 +43,14 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       sending: "Sending...",
       success: "Thank you! Your message has been sent successfully.",
       contactInfo: "Contact Information",
+      addressTitle: "Address",
       address: "København, Danmark",
       contactDetails: {
+        phoneTitle: "Phone",
         phone: "+45 50 47 60 37",
+        emailTitle: "Email",
         email: "info@nordiclegalconsulting.dk",
+        hoursTitle: "Office Hours",
         hours: "Mon - Fri: 9:00 - 17:00",
       },
       subjects: [
@@ -70,10 +74,14 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       sending: "Sender...",
       success: "Tak! Din besked er blevet sendt.",
       contactInfo: "Kontakt Information",
+      addressTitle: "Adresse",
       address: "København, Danmark",
       contactDetails: {
+        phoneTitle: "Telefon",
         phone: "+45 50 47 60 37",
+        emailTitle: "E-mail",
         email: "info@nordiclegalconsulting.dk",
+        hoursTitle: "Åbningstider",
         hours: "Man - Fre: 9:00 - 17:00",
       },
       subjects: [
@@ -276,7 +284,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                   <MapPin className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
                     <h4 className="font-semibold text-gray-800 mb-1">
-                      Address
+                      {t.addressTitle}
                     </h4>
                     <p className="text-gray-600">{t.address}</p>
                   </div>
@@ -285,7 +293,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                 <div className="flex items-start">
                   <Phone className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Phone</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">{t.contactDetails.phoneTitle}</h4>
                     <p className="text-gray-600">{t.contactDetails.phone}</p>
                   </div>
                 </div>
@@ -293,7 +301,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                 <div className="flex items-start">
                   <Mail className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Email</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">{t.contactDetails.emailTitle}</h4>
                     <p className="text-gray-600">{t.contactDetails.email}</p>
                   </div>
                 </div>
@@ -302,7 +310,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                   <Clock className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
                     <h4 className="font-semibold text-gray-800 mb-1">
-                      Office Hours
+                      {t.contactDetails.hoursTitle}
                     </h4>
                     <p className="text-gray-600">{t.contactDetails.hours}</p>
                   </div>
