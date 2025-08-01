@@ -19,8 +19,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
       contactUs: "Contact us",
       stats: [
         { number: "500+", label: "Successful Cases" },
-        { number: "15+", label: "Years Experience" },
-        { number: "3", label: "Countries Covered" },
+        { number: "8+", label: "Years Experience" },
         { number: "98%", label: "Success Rate" },
       ],
       values: [
@@ -61,8 +60,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
       contactUs: "Kontakt os",
       stats: [
         { number: "500+", label: "Succesfulde Sager" },
-        { number: "15+", label: "Års Erfaring" },
-        { number: "3", label: "Lande Dækket" },
+        { number: "8+", label: "Års Erfaring" },
         { number: "98%", label: "Succesrate" },
       ],
       values: [
@@ -115,11 +113,11 @@ const About: React.FC<AboutProps> = ({ language }) => {
           </p>
         </div>
 
-        {/* Stats Section */}
-        <div className="grid md:grid-cols-4 gap-8 mb-20">
+        {/* Stats Section - Updated for 3 stats */}
+        <div className="grid md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto">
           {t.stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 h-full">
                 <div className="text-4xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   {stat.number}
                 </div>
@@ -158,10 +156,6 @@ const About: React.FC<AboutProps> = ({ language }) => {
             </p>
 
             <div className="flex items-center space-x-4">
-              {/* <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg">
-                {t.contactUs}
-              </button> */}
-
               <div className="flex items-center space-x-4 text-gray-600">
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
@@ -179,7 +173,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
         {/* Values Section */}
         <div>
           <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">
-            Our Values
+            {language === 'en' ? 'Our Values' : 'Vores Værdier'}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.values.map((value, index) => {
