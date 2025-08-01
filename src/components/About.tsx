@@ -156,7 +156,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
             </p>
 
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-4 text-gray-600">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 text-gray-600">
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 mr-2" />
                   <span>+45 50 47 60 37</span>
@@ -173,7 +173,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
         {/* Values Section */}
         <div>
           <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">
-            {language === 'en' ? 'Our Values' : 'Vores Værdier'}
+            {language === "en" ? "Our Values" : "Vores Værdier"}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {t.values.map((value, index) => {
