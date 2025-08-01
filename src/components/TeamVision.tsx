@@ -103,7 +103,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
                 </h2>
               </div>
 
-              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto mb-4">
                 {t.visionText}
               </p>
 
