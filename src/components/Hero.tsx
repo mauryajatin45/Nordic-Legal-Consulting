@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       mobile: "Mobile Number",
       preferredLang: "Preferred Language",
       purpose: "Meeting Purpose",
-      bookButton: "Book Now",
+      bookButton: "Book now",
       bookButtonLoading: "Booking...",
       purposes: [
         "Family Reunification",
@@ -57,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       mobile: "Mobilnummer",
       preferredLang: "Foretrukne Sprog",
       purpose: "Mødets Formål",
-      bookButton: "Book Nu",
+      bookButton: "Book nu",
       bookButtonLoading: "Booker...",
       purposes: [
         "Familiesammenføring",

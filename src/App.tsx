@@ -4,7 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import HowWeWork from './components/HowWeWork';
-import Experts from './components/Experts';
+// import Experts from './components/Experts';
+import TeamVision from './components/TeamVision';
 import Services from './components/Services';
 import Blog from './components/Blog';
 import FAQ from './components/FAQ';
@@ -42,7 +43,8 @@ function App() {
                 <Hero language={language} />
                 <Services language={language} onGetStarted={scrollToContact} />
                 <HowWeWork language={language} />
-                <Experts language={language} />
+                {/* <Experts language={language} /> */}
+                <TeamVision language={language} />
                 <Blog language={language} />
                 <FAQ language={language} />
                 <Testimonials language={language} />

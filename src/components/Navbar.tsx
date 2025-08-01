@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ChevronDown, Globe, Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
   language: string;
@@ -13,21 +13,25 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
   const navigate = useNavigate();
 
   const navItems = [
-    { label: language === 'en' ? 'About Us' : 'Om Os', href: '/about' },
-    { label: language === 'en' ? 'Services' : 'Tjenester', href: '#services' },
-    { label: language === 'en' ? 'Experts' : 'Eksperter', href: '#experts' },
-    { label: 'FAQs', href: '#faqs' },
-    { label: language === 'en' ? 'Contact' : 'Kontakt', href: '#contact' },
+    { label: language === "en" ? "ABOUT US" : "OM OS", href: "/about" },
+    { label: language === "en" ? "SERVICES" : "TJENESTER", href: "#services" },
+    { label: language === "en" ? "EXPERTS" : "EKSPERTER", href: "#experts" },
+    {
+      label:
+        language === "en" ? "FAQs".toUpperCase() : "OFTE STILLEDE SPØRGSMÅL",
+      href: "#faqs",
+    },
+    { label: language === "en" ? "CONTACT" : "KONTAKT", href: "#contact" },
   ];
 
   const handleNavClick = (href: string) => {
-    if (href.startsWith('#')) {
-      navigate('/');
+    if (href.startsWith("#")) {
+      navigate("/");
       // Small delay to ensure page is loaded before scrolling
       setTimeout(() => {
         const element = document.querySelector(href);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          element.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
     } else {
@@ -41,8 +45,15 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-            <img src="/image.png" alt="Nordic Legal Consulting" className="h-14 w-auto" />
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={() => navigate("/")}
+          >
+            <img
+              src="/image.png"
+              alt="Nordic Legal Consulting"
+              className="h-14 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -64,7 +75,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
               >
                 <Globe className="w-4 h-4" />
-                <span className="font-medium">{language === 'en' ? 'EN' : 'DA'}</span>
+                <span className="font-medium">
+                  {language === "en" ? "EN" : "DA"}
+                </span>
                 <ChevronDown className="w-4 h-4" />
               </button>
 
@@ -72,7 +85,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200">
                   <button
                     onClick={() => {
-                      setLanguage('en');
+                      setLanguage("en");
                       setIsLanguageOpen(false);
                     }}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
@@ -81,7 +94,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                   </button>
                   <button
                     onClick={() => {
-                      setLanguage('da');
+                      setLanguage("da");
                       setIsLanguageOpen(false);
                     }}
                     className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
@@ -99,7 +112,11 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600"
             >
-              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -119,11 +136,15 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               ))}
               <div className="px-3 py-2">
                 <button
-                  onClick={() => setLanguage(language === 'en' ? 'da' : 'en')}
+                  onClick={() => setLanguage(language === "en" ? "da" : "en")}
                   className="flex items-center space-x-2 text-gray-700 hover:text-blue-600"
                 >
                   <Globe className="w-4 h-4" />
-                  <span>{language === 'en' ? 'Switch to Dansk' : 'Switch to English'}</span>
+                  <span>
+                    {language === "en"
+                      ? "Switch to Dansk"
+                      : "Switch to English"}
+                  </span>
                 </button>
               </div>
             </div>

@@ -44,7 +44,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       success: "Thank you! Your message has been sent successfully.",
       contactInfo: "Contact Information",
       addressTitle: "Address",
-      address: "København, Danmark",
+      address: "Aarhus, Danmark",
       contactDetails: {
         phoneTitle: "Phone",
         phone: "+45 50 47 60 37",
@@ -75,7 +75,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       success: "Tak! Din besked er blevet sendt.",
       contactInfo: "Kontakt Information",
       addressTitle: "Adresse",
-      address: "København, Danmark",
+      address: "Aarhus, Danmark",
       contactDetails: {
         phoneTitle: "Telefon",
         phone: "+45 50 47 60 37",
@@ -293,7 +293,9 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                 <div className="flex items-start">
                   <Phone className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">{t.contactDetails.phoneTitle}</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      {t.contactDetails.phoneTitle}
+                    </h4>
                     <p className="text-gray-600">{t.contactDetails.phone}</p>
                   </div>
                 </div>
@@ -301,7 +303,9 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                 <div className="flex items-start">
                   <Mail className="w-6 h-6 text-blue-600 mt-1 mr-4" />
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">{t.contactDetails.emailTitle}</h4>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      {t.contactDetails.emailTitle}
+                    </h4>
                     <p className="text-gray-600">{t.contactDetails.email}</p>
                   </div>
                 </div>
@@ -322,14 +326,14 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
             <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-gray-200 p-4 shadow-xl">
               <div className="w-full h-64 rounded-2xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d144871.42485428138!2d12.473097!3d55.6760968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4652533c5c803d23%3A0x4dd7edde69467b8!2sK%C3%B8benhavn%2C%20Danmark!5e0!3m2!1sen!2s!4v1703123456789!5m2!1sen!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90167.07202463018!2d10.1247051!3d56.1629391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c3f8a4efc1db9%3A0x400fef341b2f370!2sAarhus%2C%20Denmark!5e0!3m2!1sen!2s!4v1703123456789!5m2!1sen!2s"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Copenhagen, Denmark Location"
+                  title="Aarhus, Denmark Location"
                   className="rounded-2xl"
                 />
               </div>
