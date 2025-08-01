@@ -140,7 +140,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
             <div className="relative">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+                  src="/HandShake.webp"
                   alt="Legal team vision"
                   className="w-full h-[500px] object-cover"
                 />
@@ -171,7 +171,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
             <div className="relative max-w-4xl mx-auto">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop"
+                  src="/HappyFamily.jpeg"
                   alt="Happy family reunited"
                   className="w-full h-[400px] object-cover"
                 />
