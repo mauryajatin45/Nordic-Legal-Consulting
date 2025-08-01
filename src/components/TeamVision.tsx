@@ -103,7 +103,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
                 </h2>
               </div>
 
-              <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
                 {t.visionText}
               </p>
 
@@ -161,7 +161,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
               </span>
             </h2>
 
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto text-gray-600 max-w-4xl mx-auto leading-relaxed">
               {t.expertsIntro}
             </p>
           </div>
