@@ -161,7 +161,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               {t.expertsIntro}
             </p>
           </div>
