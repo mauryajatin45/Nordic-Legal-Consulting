@@ -2,7 +2,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 
 interface HeroProps {
-  language: string;
+  language: "en" | "da";
 }
 
 const Hero: React.FC<HeroProps> = ({ language }) => {
@@ -13,17 +13,19 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
         "We’re here to make sure you can be with the ones you love. At Nordic Legal Consulting, we guide you with care through family reunification and visa processes, so bringing your family together becomes easier.",
       cta: "Free consultation",
       badges: ["Expertise in Schengen Visas", "Expertise in EU regulations"],
+      subCta: "Book a free 30-minute consultation with our legal experts.",
     },
     da: {
-      titleLines: ["Vi hjælper familier genforenes —", "på tværs af grænser"],
+      titleLines: ["Vi genforener familier –", "på tværs af grænser"],
       paragraph:
-        "Vi hjælper dig med at være sammen med dine kære. Nordic Legal Consulting guider dig gennem familiesammenføring og visa-processer med omhu, så det bliver lettere at bringe din familie sammen.",
+        "Vi kæmper for, at du kan være sammen med dem, du elsker. Hos Nordic Legal Consulting guider vi dig trygt gennem familiesammenføring og visumprocesser, så vejen til at genforene din familie bliver lettere.",
       cta: "Gratis konsultation",
-      badges: ["Ekspertise i Schengen-visum", "Ekspertise i EU-regler"],
+      badges: ["Ekspertise i Schengen visum", "Ekspertise i EU-regler"],
+      subCta: "Book en gratis 30-minutters konsultation med vores eksperter.",
     },
   };
 
-  const t = content[language === "en" ? "en" : "da"];
+  const t = content[language];
 
   return (
     <section
@@ -40,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
 
       <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-8">
-          {/* Left column: big copy */}
+          {/* Left column: text */}
           <div className="lg:col-span-7 xl:col-span-6 text-white">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
               <span className="block">{t.titleLines[0]}</span>
@@ -62,22 +64,19 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              {/* subtle secondary CTA or note */}
-              <p className="text-sm text-white/80 max-w-xl">
-                {language === "en"
-                  ? "Book a free 30-minute consultation with our legal experts."
-                  : "Book en gratis 30-minutters konsultation med vores eksperter."}
-              </p>
+              {/* subtle secondary CTA */}
+              <p className="text-sm text-white/80 max-w-xl">{t.subCta}</p>
             </div>
 
             {/* badges */}
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <BadgeIcon text={t.badges[0]} />
-              <BadgeIcon text={t.badges[1]} />
+              {t.badges.map((badge, i) => (
+                <BadgeIcon key={i} text={badge} />
+              ))}
             </div>
           </div>
 
-          {/* right safe area - intentionally left empty so background image (person) shows */}
+          {/* Right side empty for hero image */}
           <div className="hidden lg:block lg:col-span-5 xl:col-span-6"></div>
         </div>
       </div>
@@ -85,11 +84,10 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
   );
 };
 
-/* Small white badge used under the CTA (icon + text) */
+/* Small white badge with icon */
 const BadgeIcon: React.FC<{ text: string }> = ({ text }) => {
   return (
     <div className="flex items-center gap-3 bg-white/8 border border-white/20 rounded-lg px-4 py-2 max-w-md">
-      {/* small shield icon */}
       <svg
         className="w-6 h-6 text-white"
         xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +111,6 @@ const BadgeIcon: React.FC<{ text: string }> = ({ text }) => {
           strokeLinejoin="round"
         />
       </svg>
-
       <span className="text-sm text-white/90">{text}</span>
     </div>
   );

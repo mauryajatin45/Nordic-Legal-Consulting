@@ -24,7 +24,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
       // ensure root then scroll
       navigate("/");
       setTimeout(() => {
-        const el = document.querySelector(href.replace("/",""));
+        const el = document.querySelector(href.replace("/", ""));
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 120);
     } else {
@@ -43,7 +43,11 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
             onClick={() => navigate("/")}
             aria-label="Home"
           >
-            <img src="/Nordic1.png" alt="Nordic Legal Consulting" className="h-36 w-auto" />
+            <img
+              src="/Nordic1.png"
+              alt="Nordic Legal Consulting"
+              className="h-36 w-auto"
+            />
           </div>
 
           {/* Center: Nav (desktop) */}
@@ -52,7 +56,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               <button
                 key={n.label}
                 onClick={() => handleNav(n.href)}
-                className="text-gray-700 hover:text-blue-700 transition-colors font-medium uppercase tracking-wide"
+                className="text-gray-700 hover:text-blue-700 transition-colors font-bold tracking-wide"
               >
                 {n.label}
               </button>
@@ -69,20 +73,28 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 aria-expanded={openLang}
               >
                 <Globe className="w-5 h-5" />
-                <span className="font-medium">{language === "en" ? "ENG" : "DA"}</span>
+                <span className="font-bold">
+                  {language === "en" ? "ENG" : "DA"}
+                </span>
                 <ChevronDown className="w-4 h-4" />
               </button>
 
               {openLang && (
                 <div className="absolute right-0 mt-3 w-36 bg-white border border-gray-200 rounded-lg shadow">
                   <button
-                    onClick={() => { setLanguage("en"); setOpenLang(false); }}
+                    onClick={() => {
+                      setLanguage("en");
+                      setOpenLang(false);
+                    }}
                     className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50"
                   >
                     English
                   </button>
                   <button
-                    onClick={() => { setLanguage("da"); setOpenLang(false); }}
+                    onClick={() => {
+                      setLanguage("da");
+                      setOpenLang(false);
+                    }}
                     className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50"
                   >
                     Dansk
@@ -96,7 +108,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               onClick={() => handleNav("/#contact")}
               className="hidden md:inline-block bg-[#17234A] text-white px-5 py-2.5 rounded-full font-semibold shadow hover:opacity-95 transition"
             >
-              {language === "en" ? "Free consultation" : "Gratis konsultation"}
+              {language === "en"
+                ? "Free consultation"
+                : "Gratis konsultation"}
             </button>
 
             {/* Mobile menu toggle */}
@@ -106,7 +120,11 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 className="p-2 text-gray-700"
                 aria-label="Toggle menu"
               >
-                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
               </button>
             </div>
           </div>
@@ -133,7 +151,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 >
                   <Globe className="w-4 h-4" />
                   <span className="text-sm">
-                    {language === "en" ? "Switch to Dansk" : "Switch to English"}
+                    {language === "en"
+                      ? "Switch to Dansk"
+                      : "Switch to English"}
                   </span>
                 </button>
               </div>
@@ -143,7 +163,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                   onClick={() => handleNav("/contact")}
                   className="w-full text-white px-4 py-3 rounded-full bg-[#17234A] font-semibold"
                 >
-                  {language === "en" ? "Free consultation" : "Gratis konsultation"}
+                  {language === "en"
+                    ? "Free consultation"
+                    : "Gratis konsultation"}
                 </button>
               </div>
             </div>
