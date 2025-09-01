@@ -161,7 +161,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-5xl mx-auto leading-relaxed">
               {t.expertsIntro}
             </p>
           </div>
@@ -176,13 +176,13 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
                   className="w-full h-[400px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
-                <div className="absolute bottom-8 left-8 right-8 text-white">
+                {/* <div className="absolute bottom-8 left-8 right-8 text-white">
                   <p className="text-2xl font-extrabold text-center">
                     {language === "da"
                       ? "Vi hjælper familier med at genforenes"
                       : "We help families reunite"}
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
