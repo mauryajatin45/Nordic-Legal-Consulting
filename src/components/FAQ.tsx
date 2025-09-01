@@ -12,7 +12,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
     en: {
       title: "Family Reunification FAQs – EU Rules",
       subtitle:
-        "Find answers about eligibility, documents, timelines, and special conditions under EU free movement.",
+        "Find answers about eligibility, documents, timelines, and requirements.",
       faqs: [
         {
           question: "Who is eligible for family reunification in the EU?",
@@ -89,7 +89,7 @@ const FAQ: React.FC<FAQProps> = ({ language }) => {
     da: {
       title: "Familiesammenføring FAQ – EU-regler",
       subtitle:
-        "Få svar om berettigelse, dokumenter, forløb og særlige nationale krav efter EU’s regler.",
+        "Få svar om berettigelse, dokumenter, forløb og særlige krav efter EU regler.",
       faqs: [
         {
           question: "Hvem er berettiget til familiesammenføring i EU?",

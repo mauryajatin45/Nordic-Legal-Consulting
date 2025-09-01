@@ -163,7 +163,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
             </Card>
 
             {/* Visit Card */}
-            <Card>
+            {/* <Card>
               <div className="flex items-start gap-4">
                 <IconBox>
                   <MapPin className="w-5 h-5 text-white" />
@@ -180,7 +180,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
                   </p>
                 </div>
               </div>
-            </Card>
+            </Card> */}
           </div>
 
           {/* Right form column */}
