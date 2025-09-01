@@ -8,7 +8,7 @@ interface BlogProps {
 const Blog: React.FC<BlogProps> = ({ language }) => {
   const content = {
     en: {
-      title: "LATEST IMMIGRATION NEWS & INSIGHTS",
+      title: "Latest immigration news & insights",
       subtitle:
         "Stay updated with the latest immigration law changes and guides",
       readMore: "Read More",
@@ -46,7 +46,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
       ],
     },
     da: {
-      title: "SENESTE IMMIGRATION NYHEDER & INDSIGTER",
+      title: "Seneste immigration nyheder & indsigter",
       subtitle:
         "Hold dig opdateret med de seneste ændringer i immigrationslovgivningen og nyttige guides",
       readMore: "Læs Mere",
@@ -100,12 +100,12 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>

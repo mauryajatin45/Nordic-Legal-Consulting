@@ -1,20 +1,21 @@
+// Contact.tsx
 import React, { forwardRef, useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
+import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { useForm, ValidationError } from "@formspree/react";
 
-// Define the type for props
 interface ContactProps {
   language: string;
 }
 
-// Use forwardRef to forward the ref to the root element of the component
 const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
+  // Replace "mnnzqqbd" with your Formspree form ID if different
   const [state, handleSubmit] = useForm("mnnzqqbd");
+
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
+    fullName: "",
+    mobile: "",
+    preferredLanguage: "dansk",
+    purpose: "",
     message: "",
   });
 
@@ -31,312 +32,329 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
 
   const content = {
     en: {
-      title: "CONTACT US",
-      subtitle: "Get in touch with our immigration experts today",
-      formTitle: "Send us a message",
-      name: "Full Name",
-      email: "Email Address",
-      phone: "Phone Number",
-      subject: "Subject",
-      message: "Message",
-      send: "Send Message",
-      sending: "Sending...",
-      success: "Thank you! Your message has been sent successfully.",
-      contactInfo: "Contact Information",
-      addressTitle: "Address",
-      address: "Aarhus, Danmark",
-      contactDetails: {
-        phoneTitle: "Phone",
-        phone: "+45 50 47 60 37",
-        emailTitle: "Email",
-        email: "info@nordiclegalconsulting.dk",
-        hoursTitle: "Office Hours",
-        hours: "Mon - Fri: 9:00 - 17:00",
+      title: "Contact us",
+      formTitle: "Book gratis konsultation",
+      fullName: "Full Name *",
+      mobile: "Mobile Number *",
+      preferredLang: "Preferred language",
+      purpose: "Meeting Purpose",
+      message: "Message (optional)",
+      bookButton: "Book Now",
+      bookButtonLoading: "Booking...",
+      placeholders: {
+        fullName: "John Doe",
+        mobile: "+45 12 34 56 78",
+        message: "Tell us about your situation...",
       },
-      subjects: [
+      contactCards: {
+        emailTitle: "Email Us",
+        email: "info@nordiclegalconsulting.dk",
+        emailNote: "We respond within 24 hours",
+        phoneTitle: "Call Us",
+        phone: "+45 70 20 30 40",
+        phoneHours: "Mon-Fri 9:00-17:00 CET",
+        visitTitle: "Visit Us",
+        visitAddressLine1: "Nørregade 45, 2. sal",
+        visitAddressLine2: "1165 København K, Danmark",
+      },
+      purposes: [
         "Family Reunification",
-        "EU Blue Card",
-        "Student Visa",
-        "Work Permit",
-        "General Inquiry",
+        "EU Law Consultation",
+        "Visa Application",
+        "General Consultation",
       ],
+      success:
+        "Thank you! We'll contact you shortly to confirm your appointment.",
     },
     da: {
-      title: "KONTAKT OS",
-      subtitle: "Kom i kontakt med vores immigrationseksperter i dag",
-      formTitle: "Send os en besked",
-      name: "Fulde Navn",
-      email: "Email Adresse",
-      phone: "Telefonnummer",
-      subject: "Emne",
-      message: "Besked",
-      send: "Send Besked",
-      sending: "Sender...",
-      success: "Tak! Din besked er blevet sendt.",
-      contactInfo: "Kontakt Information",
-      addressTitle: "Adresse",
-      address: "Aarhus, Danmark",
-      contactDetails: {
-        phoneTitle: "Telefon",
-        phone: "+45 50 47 60 37",
-        emailTitle: "E-mail",
-        email: "info@nordiclegalconsulting.dk",
-        hoursTitle: "Åbningstider",
-        hours: "Man - Fre: 9:00 - 17:00",
+      title: "Kontakt os",
+      formTitle: "Book gratis konsultation",
+      fullName: "Fulde Navn *",
+      mobile: "Mobilnummer *",
+      preferredLang: "Foretrukne Sprog",
+      purpose: "Mødets Formål",
+      message: "Besked (valgfri)",
+      bookButton: "Book Nu",
+      bookButtonLoading: "Booker...",
+      placeholders: {
+        fullName: "Dit fulde navn",
+        mobile: "+45 12 34 56 78",
+        message: "Fortæl os om din situation...",
       },
-      subjects: [
+      contactCards: {
+        emailTitle: "Email Os",
+        email: "info@nordiclegalconsulting.dk",
+        emailNote: "Vi svarer inden for 24 timer",
+        phoneTitle: "Ring til Os",
+        phone: "+45 70 20 30 40",
+        phoneHours: "Man-Fre 9:00-17:00 CET",
+        visitTitle: "Besøg Os",
+        visitAddressLine1: "Nørregade 45, 2. sal",
+        visitAddressLine2: "1165 København K, Danmark",
+      },
+      purposes: [
         "Familiesammenføring",
-        "EU Blåkort",
-        "Studievisa",
-        "Arbejdstilladelse",
-        "Generel Forespørgsel",
+        "EU-ret konsultation",
+        "Visa ansøgning",
+        "Generel konsultation",
       ],
+      success: "Tak! Vi kontakter dig snarest for at bekræfte din aftale.",
     },
   };
 
-  const t = content[language as keyof typeof content];
+  const t = content[language === "da" ? "da" : "en"];
 
   return (
     <section
       id="contact"
       ref={ref}
-      className="py-24 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden"
+      className="py-20 bg-white"
+      aria-label="Contact section"
     >
-      {/* Decorative Background */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="relative inline-block text-3xl sm:text-4xl lg:text-5xl font-bold text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text">
-            {t.title}
-          </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
-            {t.subtitle}
-          </p>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center mb-6">
+            <h2 className="relative inline-block text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {t.title}
+            </h2>
+          </div>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-gray-200 p-8 shadow-xl max-h-fit">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">
-              {t.formTitle}
-            </h3>
-
-            {state.succeeded ? (
-              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-6 rounded-2xl text-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-12 w-12 mx-auto mb-4 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <p className="text-lg font-medium">{t.success}</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.name}
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                      required
-                    />
-                    <ValidationError
-                      prefix="Name"
-                      field="name"
-                      errors={state.errors}
-                      className="text-red-500 text-sm mt-1"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.email}
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                      required
-                    />
-                    <ValidationError
-                      prefix="Email"
-                      field="email"
-                      errors={state.errors}
-                      className="text-red-500 text-sm mt-1"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.phone}
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                    />
-                    <ValidationError
-                      prefix="Phone"
-                      field="phone"
-                      errors={state.errors}
-                      className="text-red-500 text-sm mt-1"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t.subject}
-                    </label>
-                    <select
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-800 backdrop-blur-sm"
-                      required
-                    >
-                      <option value="" className="bg-white">
-                        Select subject...
-                      </option>
-                      {t.subjects.map((subject, index) => (
-                        <option
-                          key={index}
-                          value={subject}
-                          className="bg-white"
-                        >
-                          {subject}
-                        </option>
-                      ))}
-                    </select>
-                    <ValidationError
-                      prefix="Subject"
-                      field="subject"
-                      errors={state.errors}
-                      className="text-red-500 text-sm mt-1"
-                    />
-                  </div>
-                </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left cards column */}
+          <div className="lg:col-span-4 space-y-6">
+            {/* Email Card */}
+            <Card>
+              <div className="flex items-start gap-4">
+                <IconBox>
+                  <Mail className="w-5 h-5 text-white" />
+                </IconBox>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    {t.message}
-                  </label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={6}
-                    className="w-full px-4 py-3 bg-white/70 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none text-gray-800 placeholder-gray-500 backdrop-blur-sm"
-                    required
-                  />
-                  <ValidationError
-                    prefix="Message"
-                    field="message"
-                    errors={state.errors}
-                    className="text-red-500 text-sm mt-1"
-                  />
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    {t.contactCards.emailTitle}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {t.contactCards.email}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t.contactCards.emailNote}
+                  </p>
                 </div>
+              </div>
+            </Card>
 
-                <button
-                  type="submit"
-                  disabled={state.submitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-2xl font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg flex items-center justify-center disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  <Send className="w-5 h-5 mr-2" />
-                  {state.submitting ? t.sending : t.send}
-                </button>
-              </form>
-            )}
+            {/* Phone Card */}
+            <Card>
+              <div className="flex items-start gap-4">
+                <IconBox>
+                  <Phone className="w-5 h-5 text-white" />
+                </IconBox>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    {t.contactCards.phoneTitle}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {t.contactCards.phone}
+                  </p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    {t.contactCards.phoneHours}
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            {/* Visit Card */}
+            <Card>
+              <div className="flex items-start gap-4">
+                <IconBox>
+                  <MapPin className="w-5 h-5 text-white" />
+                </IconBox>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-800">
+                    {t.contactCards.visitTitle}
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {t.contactCards.visitAddressLine1}
+                  </p>
+                  <p className="text-sm text-gray-600">
+                    {t.contactCards.visitAddressLine2}
+                  </p>
+                </div>
+              </div>
+            </Card>
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-gray-200 p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                {t.contactInfo}
+          {/* Right form column */}
+          <div className="lg:col-span-8">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-8">
+              <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+                {t.formTitle}
               </h3>
 
-              <div className="space-y-6">
-                <div className="flex items-start">
-                  <MapPin className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
-                      {t.addressTitle}
-                    </h4>
-                    <p className="text-gray-600">{t.address}</p>
-                  </div>
+              {state.succeeded ? (
+                <div className="rounded-xl bg-green-50 border border-green-200 p-6 text-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-12 w-12 mx-auto mb-3 text-green-600"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                  <p className="text-gray-800 font-medium">{t.success}</p>
                 </div>
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
+                  aria-label="Consultation form"
+                >
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Full Name */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.fullName}
+                      </label>
+                      <input
+                        type="text"
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        placeholder={t.placeholders.fullName}
+                        required
+                        className="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      />
+                      <ValidationError
+                        prefix="Full Name"
+                        field="fullName"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
+                      />
+                    </div>
 
-                <div className="flex items-start">
-                  <Phone className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
-                      {t.contactDetails.phoneTitle}
-                    </h4>
-                    <p className="text-gray-600">{t.contactDetails.phone}</p>
+                    {/* Mobile */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.mobile}
+                      </label>
+                      <input
+                        type="tel"
+                        name="mobile"
+                        value={formData.mobile}
+                        onChange={handleInputChange}
+                        placeholder={t.placeholders.mobile}
+                        required
+                        pattern="^\+?[0-9\s\-\(\)]{8,20}$"
+                        className="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      />
+                      <ValidationError
+                        prefix="Mobile"
+                        field="mobile"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start">
-                  <Mail className="w-6 h-6 text-blue-600 mt-1 mr-4" />
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
-                      {t.contactDetails.emailTitle}
-                    </h4>
-                    <p className="text-gray-600">{t.contactDetails.email}</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Preferred Language */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.preferredLang}
+                      </label>
+                      <select
+                        name="preferredLanguage"
+                        value={formData.preferredLanguage}
+                        onChange={handleInputChange}
+                        className="w-full px-4 py-3 rounded-md border border-gray-200 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      >
+                        <option value="dansk">Dansk</option>
+                        <option value="english">English</option>
+                      </select>
+                    </div>
+
+                    {/* Purpose */}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        {t.purpose}
+                      </label>
+                      <select
+                        name="purpose"
+                        value={formData.purpose}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 rounded-md border border-gray-200 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                      >
+                        <option value="">
+                          {language === "da"
+                            ? "Vælg formål..."
+                            : "Select purpose..."}
+                        </option>
+                        {t.purposes.map((p, i) => (
+                          <option key={i} value={p}>
+                            {p}
+                          </option>
+                        ))}
+                      </select>
+                      <ValidationError
+                        prefix="Purpose"
+                        field="purpose"
+                        errors={state.errors}
+                        className="text-red-500 text-sm mt-1"
+                      />
+                    </div>
                   </div>
-                </div>
 
-                <div className="flex items-start">
-                  <Clock className="w-6 h-6 text-blue-600 mt-1 mr-4" />
+                  {/* Message */}
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">
-                      {t.contactDetails.hoursTitle}
-                    </h4>
-                    <p className="text-gray-600">{t.contactDetails.hours}</p>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      {t.message}
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      rows={5}
+                      placeholder={t.placeholders.message}
+                      className="w-full px-4 py-3 rounded-md border border-gray-200 bg-gray-50 placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                    />
                   </div>
-                </div>
-              </div>
-            </div>
 
-            {/* Map */}
-            <div className="bg-white/80 backdrop-blur-xl rounded-3xl border border-gray-200 p-4 shadow-xl">
-              <div className="w-full h-64 rounded-2xl overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d90167.07202463018!2d10.1247051!3d56.1629391!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x464c3f8a4efc1db9%3A0x400fef341b2f370!2sAarhus%2C%20Denmark!5e0!3m2!1sen!2s!4v1703123456789!5m2!1sen!2s"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Aarhus, Denmark Location"
-                  className="rounded-2xl"
-                />
-              </div>
+                  {/* Hidden form language field (useful if you want to know which lang was used) */}
+                  <input type="hidden" name="formLanguage" value={language} />
+
+                  {/* Form-level validation error display */}
+                  {state.errors && state.errors.length > 0 && (
+                    <div className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-md p-3">
+                      {language === "da"
+                        ? "Udfyld venligst alle påkrævede felter korrekt."
+                        : "Please fill all required fields correctly."}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className={`w-full flex items-center justify-center gap-3 px-6 py-3 rounded-lg text-white font-semibold ${
+                      state.submitting
+                        ? "opacity-70 cursor-not-allowed bg-gradient-to-r from-gray-500 to-gray-600"
+                        : "bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-95"
+                    }`}
+                  >
+                    <Send className="w-4 h-4" />
+                    {state.submitting
+                      ? language === "da"
+                        ? t.bookButtonLoading
+                        : t.bookButtonLoading
+                      : language === "da"
+                      ? t.bookButton
+                      : t.bookButton}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -346,3 +364,21 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
 });
 
 export default Contact;
+
+/* ---------- Small helper components below (keeps markup clean) ---------- */
+
+function Card({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-5">
+      {children}
+    </div>
+  );
+}
+
+function IconBox({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+      {children}
+    </div>
+  );
+}

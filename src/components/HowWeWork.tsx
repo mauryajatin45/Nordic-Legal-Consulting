@@ -14,8 +14,8 @@ interface HowWeWorkProps {
 const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
   const content = {
     en: {
-      title: "HOW WE WORK",
-      subtitle: "Our streamlined process to get you started",
+      title: "How we work",
+      subtitle: "We help you safely through immigration – with solutions tailored to your needs",
       Btn: "Ready to get started?",
       steps: [
         {
@@ -53,8 +53,8 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
       ],
     },
     da: {
-      title: "SÅDAN ARBEJDER VI",
-      subtitle: "Vores strømlinede proces for at få dig i gang",
+      title: "Sådan arbejder vi",
+      subtitle: "Sådan arbejder vi Vi guider dig trygt gennem immigrationsprocessen – med løsninger, der passer til dine behov",
       Btn: "Klar til at komme i gang?",
       steps: [
         {
@@ -105,13 +105,13 @@ const HowWeWork: React.FC<HowWeWorkProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
             {/* <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 mt-4"></span> */}
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>

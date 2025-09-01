@@ -103,12 +103,12 @@ const About: React.FC<AboutProps> = ({ language }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl sm:text-5xl p-4 md:text-6xl font-bold text-gray-800 mb-4 leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl p-4 md:text-6xl font-extrabold text-gray-800 mb-4 leading-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             {t.title}
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-2">{t.subtitle}</p>
-          <p className="text-base sm:text-lg text-blue-600 font-semibold">
+          <p className="text-base sm:text-lg text-blue-600 font-bold">
             {t.sectionTitle}
           </p>
         </div>
@@ -145,7 +145,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
 
           {/* Right side - Content */}
           <div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-8">
+            <h2 className="text-4xl font-extrabold text-gray-800 mb-8">
               {t.aboutTitle}
             </h2>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
@@ -172,7 +172,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
 
         {/* Values Section */}
         <div>
-          <h3 className="text-3xl font-bold text-gray-800 text-center mb-12">
+          <h3 className="text-3xl font-extrabold text-gray-800 text-center mb-12">
             {language === "en" ? "Our Values" : "Vores Værdier"}
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -184,7 +184,7 @@ const About: React.FC<AboutProps> = ({ language }) => {
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <IconComponent className="w-8 h-8 text-white" />
                     </div>
-                    <h4 className="text-xl font-bold text-gray-800 mb-4 text-center">
+                    <h4 className="text-xl font-bold text-gray-800  mb-4 text-center">
                       {value.title}
                     </h4>
                     <p className="text-gray-600 leading-relaxed flex-grow text-center">

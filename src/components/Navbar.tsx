@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ChevronDown, Globe, Menu, X } from "lucide-react";
+import { Globe, ChevronDown, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface NavbarProps {
@@ -8,150 +8,149 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openLang, setOpenLang] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
 
   const navItems = [
-    { label: language === "en" ? "ABOUT US" : "OM OS", href: "/about" },
-    { label: language === "en" ? "SERVICES" : "TJENESTER", href: "#services" },
-    { label: language === "en" ? "EXPERTS" : "EKSPERTER", href: "#experts" },
-    {
-      label:
-        language === "en" ? "FAQs".toUpperCase() : "OFTE STILLEDE SPØRGSMÅL",
-      href: "#faqs",
-    },
-    { label: language === "en" ? "CONTACT" : "KONTAKT", href: "#contact" },
+    { label: language === "en" ? "Services" : "Tjenester", href: "/#services" },
+    { label: language === "en" ? "About us" : "Om os", href: "/about" },
+    { label: language === "en" ? "FAQ" : "Ofte stillede", href: "/#faqs" },
+    { label: language === "en" ? "Contact" : "Kontakt", href: "/#contact" },
   ];
 
-  const handleNavClick = (href: string) => {
-    if (href.startsWith("#")) {
+  const handleNav = (href: string) => {
+    if (href.startsWith("#") || href.startsWith("/#")) {
+      // ensure root then scroll
       navigate("/");
-      // Small delay to ensure page is loaded before scrolling
       setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
+        const el = document.querySelector(href.replace("/",""));
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 120);
     } else {
       navigate(href);
     }
-    setIsMobileMenuOpen(false);
+    setMobileOpen(false);
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white backdrop-blur-sm border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between h-20">
+          {/* Left: Logo */}
           <div
-            className="flex items-center cursor-pointer"
+            className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate("/")}
+            aria-label="Home"
           >
-            <img
-              src="/image.png"
-              alt="Nordic Legal Consulting"
-              className="h-14 w-auto"
-            />
+            <img src="/Nordic1.png" alt="Nordic Legal Consulting" className="h-36 w-auto" />
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+          {/* Center: Nav (desktop) */}
+          <nav className="hidden lg:flex items-center gap-8">
+            {navItems.map((n) => (
               <button
-                key={item.label}
-                onClick={() => handleNavClick(item.href)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
+                key={n.label}
+                onClick={() => handleNav(n.href)}
+                className="text-gray-700 hover:text-blue-700 transition-colors font-medium uppercase tracking-wide"
               >
-                {item.label}
+                {n.label}
               </button>
             ))}
+          </nav>
 
-            {/* Language Dropdown */}
-            <div className="relative">
+          {/* Right: lang + CTA */}
+          <div className="flex items-center gap-4">
+            {/* language dropdown */}
+            <div className="relative hidden md:flex items-center">
               <button
-                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                onClick={() => setOpenLang(!openLang)}
+                className="flex items-center gap-2 text-gray-700 hover:text-blue-700 transition"
+                aria-expanded={openLang}
               >
-                <Globe className="w-4 h-4" />
-                <span className="font-medium">
-                  {language === "en" ? "EN" : "DA"}
-                </span>
+                <Globe className="w-5 h-5" />
+                <span className="font-medium">{language === "en" ? "ENG" : "DA"}</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
 
-              {isLanguageOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200">
+              {openLang && (
+                <div className="absolute right-0 mt-3 w-36 bg-white border border-gray-200 rounded-lg shadow">
                   <button
-                    onClick={() => {
-                      setLanguage("en");
-                      setIsLanguageOpen(false);
-                    }}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    onClick={() => { setLanguage("en"); setOpenLang(false); }}
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50"
                   >
                     English
                   </button>
                   <button
-                    onClick={() => {
-                      setLanguage("da");
-                      setIsLanguageOpen(false);
-                    }}
-                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+                    onClick={() => { setLanguage("da"); setOpenLang(false); }}
+                    className="w-full text-left px-4 py-2 text-sm hover:bg-gray-50"
                   >
                     Dansk
                   </button>
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+            {/* CTA pill */}
             <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-700 hover:text-blue-600"
+              onClick={() => handleNav("/#contact")}
+              className="hidden md:inline-block bg-[#17234A] text-white px-5 py-2.5 rounded-full font-semibold shadow hover:opacity-95 transition"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {language === "en" ? "Free consultation" : "Gratis konsultation"}
             </button>
+
+            {/* Mobile menu toggle */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileOpen(!mobileOpen)}
+                className="p-2 text-gray-700"
+                aria-label="Toggle menu"
+              >
+                {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
-              {navItems.map((item) => (
+        {/* Mobile menu */}
+        {mobileOpen && (
+          <div className="md:hidden pb-4">
+            <div className="flex flex-col gap-1">
+              {navItems.map((n) => (
                 <button
-                  key={item.label}
-                  onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left px-3 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                  key={n.label}
+                  onClick={() => handleNav(n.href)}
+                  className="text-left px-3 py-3 hover:bg-gray-50"
                 >
-                  {item.label}
+                  {n.label}
                 </button>
               ))}
+
               <div className="px-3 py-2">
                 <button
                   onClick={() => setLanguage(language === "en" ? "da" : "en")}
-                  className="flex items-center space-x-2 text-gray-700 hover:text-blue-600"
+                  className="w-full text-left flex items-center gap-2 px-2 py-2"
                 >
                   <Globe className="w-4 h-4" />
-                  <span>
-                    {language === "en"
-                      ? "Switch to Dansk"
-                      : "Switch to English"}
+                  <span className="text-sm">
+                    {language === "en" ? "Switch to Dansk" : "Switch to English"}
                   </span>
+                </button>
+              </div>
+
+              <div className="px-3">
+                <button
+                  onClick={() => handleNav("/contact")}
+                  className="w-full text-white px-4 py-3 rounded-full bg-[#17234A] font-semibold"
+                >
+                  {language === "en" ? "Free consultation" : "Gratis konsultation"}
                 </button>
               </div>
             </div>
           </div>
         )}
       </div>
-    </nav>
+    </header>
   );
 };
 

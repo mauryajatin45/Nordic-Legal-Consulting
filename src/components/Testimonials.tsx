@@ -13,7 +13,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
 
   const content = {
     en: {
-      title: "WHAT OUR CLIENTS SAY",
+      title: "What our clients say",
       subtitle:
         "Real experiences from families we've helped reunite In Denmark",
       testimonials: [
@@ -65,7 +65,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
       ],
     },
     da: {
-      title: "HVAD VORES KLIENTER SIGER",
+      title: "Hvad vores klienter Hvad fortæller",
       subtitle:
         "Virkelige oplevelser fra familier, vi har hjulpet med at genforenes i Danmark",
       testimonials: [
@@ -176,12 +176,12 @@ const Testimonials: React.FC<TestimonialsProps> = ({ language }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-20">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-6 relative inline-block">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 mb-6 relative inline-block">
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {t.title}
             </span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-2xl mx-auto">
             {t.subtitle}
           </p>
         </div>

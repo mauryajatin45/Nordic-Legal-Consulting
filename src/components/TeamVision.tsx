@@ -9,12 +9,12 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
   const content = {
     en: {
       // Section 1
-      visionTitle: "OUR TEAM'S VISION",
+      visionTitle: "Our team's vision",
       visionText:
         "Our ambition is to be your trusted legal partner. We provide advice that is as practical as it is strategic — focusing on tangible solutions rather than mere theoretical assessments. Nordic Legal Consulting ensures you receive clear, effective, and forward-looking support for your legal challenges.",
 
       // Section 2
-      expertsTitle: "MEET THE LEGAL EXPERTS BEHIND OUR ADVICE",
+      expertsTitle: "We guide you through complex legal processes",
       expertsIntro:
         "At Nordic Legal Consulting, we are more than advisors – we are your dedicated legal team. Our experienced lawyers combine deep practical insight with strategic understanding in EU law, immigration law, compliance, and human rights.",
 
@@ -41,12 +41,12 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
     },
     da: {
       // Section 1
-      visionTitle: "VISIONEN BAG TEAMET",
+      visionTitle: "Vores vision",
       visionText:
         "Vores ambition er at være din betroede juridiske partner. Vi leverer rådgivning, der er lige så praktisk som strategisk – med fokus på håndgribelige løsninger fremfor blot teoretiske vurderinger. Nordic Legal Consulting vil sikre, at du får klar, effektiv og fremadrettet støtte til dine juridiske udfordringer.",
 
       // Section 2
-      expertsTitle: "MØD JURISTERNE BAG RÅDGIVNINGEN",
+      expertsTitle: "Vi guider dig gennem komplekse juridiske processer",
       expertsIntro:
         "Hos Nordic Legal Consulting er vi mere end rådgivere – vi er dit dedikerede juridiske team. Vores erfarne jurister kombinerer dyb praksisnær indsigt med strategisk forståelse inden for EU-ret og familiesammenføring.",
 
@@ -96,7 +96,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mr-6">
                   <Target className="w-8 h-8 text-white" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 relative inline-block">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 relative inline-block">
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {t.visionTitle}
                   </span>
@@ -155,13 +155,13 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
         {/* Section 2: Legal Experts */}
         <div>
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl mb-4 lg:text-5xl font-bold text-gray-800 relative inline-block">
+            <h2 className="text-3xl sm:text-4xl mb-4 lg:text-5xl font-extrabold text-gray-800 relative inline-block">
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 {t.expertsTitle}
               </span>
             </h2>
 
-            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-gray-600 max-w-2xl mx-auto leading-relaxed">
               {t.expertsIntro}
             </p>
           </div>
@@ -177,7 +177,7 @@ const TeamVision: React.FC<TeamVisionProps> = ({ language }) => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
                 <div className="absolute bottom-8 left-8 right-8 text-white">
-                  <p className="text-2xl font-semibold text-center">
+                  <p className="text-2xl font-extrabold text-center">
                     {language === "da"
                       ? "Vi hjælper familier med at genforenes"
                       : "We help families reunite"}
