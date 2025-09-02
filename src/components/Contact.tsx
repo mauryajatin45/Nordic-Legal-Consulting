@@ -43,7 +43,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       bookButtonLoading: "Booking...",
       placeholders: {
         fullName: "John Doe",
-        mobile: "+45 12 34 56 78",
+        mobile: "+45 50 47 60 37",
         message: "Tell us about your situation...",
       },
       contactCards: {
@@ -51,8 +51,8 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
         email: "info@nordiclegalconsulting.dk",
         emailNote: "We respond within 24 hours",
         phoneTitle: "Call Us",
-        phone: "+45 70 20 30 40",
-        phoneHours: "Mon-Fri 9:00-17:00 CET",
+        phone: "+45 50 47 60 37",
+        phoneHours: "Mon-Fri 9:00-17:00",
         visitTitle: "Visit Us",
         visitAddressLine1: "Nørregade 45, 2. sal",
         visitAddressLine2: "1165 København K, Danmark",
@@ -78,7 +78,7 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
       bookButtonLoading: "Booker...",
       placeholders: {
         fullName: "Dit fulde navn",
-        mobile: "+45 12 34 56 78",
+        mobile: "+45 50 47 60 37",
         message: "Fortæl os om din situation...",
       },
       contactCards: {
@@ -86,8 +86,8 @@ const Contact = forwardRef<HTMLElement, ContactProps>(({ language }, ref) => {
         email: "info@nordiclegalconsulting.dk",
         emailNote: "Vi svarer inden for 24 timer",
         phoneTitle: "Ring til Os",
-        phone: "+45 70 20 30 40",
-        phoneHours: "Man-Fre 9:00-17:00 CET",
+        phone: "+45 50 47 60 37",
+        phoneHours: "Man-Fre 9:00-17:00",
         visitTitle: "Besøg Os",
         visitAddressLine1: "Nørregade 45, 2. sal",
         visitAddressLine2: "1165 København K, Danmark",

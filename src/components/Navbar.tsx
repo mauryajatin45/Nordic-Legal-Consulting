@@ -1,3 +1,4 @@
+// Navbar.tsx
 import React, { useState } from "react";
 import { Globe, ChevronDown, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -13,9 +14,9 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
   const navigate = useNavigate();
 
   const navItems = [
-    { label: language === "en" ? "Services" : "Tjenester", href: "/#services" },
+    { label: language === "en" ? "Services" : "Services", href: "/#services" },
     { label: language === "en" ? "About us" : "Om os", href: "/about" },
-    { label: language === "en" ? "FAQ" : "Ofte stillede", href: "/#faqs" },
+    { label: language === "en" ? "FAQ" : "FAQ", href: "/#faqs" },
     { label: language === "en" ? "Contact" : "Kontakt", href: "/#contact" },
   ];
 
@@ -40,7 +41,12 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
           {/* Left: Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer"
-            onClick={() => navigate("/")}
+            onClick={() => handleNav("/#hero")}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") handleNav("/#hero");
+            }}
+            role="button"
+            tabIndex={0}
             aria-label="Home"
           >
             <img
@@ -74,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               >
                 <Globe className="w-5 h-5" />
                 <span className="font-bold">
-                  {language === "en" ? "ENG" : "DA"}
+                  {language === "en" ? "ENG" : "DK"}
                 </span>
                 <ChevronDown className="w-4 h-4" />
               </button>
@@ -160,7 +166,7 @@ const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
               <div className="px-3">
                 <button
-                  onClick={() => handleNav("/contact")}
+                  onClick={() => handleNav("/#contact")}
                   className="w-full text-white px-4 py-3 rounded-full bg-[#17234A] font-semibold"
                 >
                   {language === "en"

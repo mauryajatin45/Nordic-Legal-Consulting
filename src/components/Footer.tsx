@@ -67,7 +67,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
 
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/share/1C1xERVtyR/?mibextid=wwXIfr"
+                href="https://www.facebook.com/share/16uwUeVYYk/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
