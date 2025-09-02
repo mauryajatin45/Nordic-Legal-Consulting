@@ -70,7 +70,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
 
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4">
               <a
-                href="/contact"
+                href="/#contact"
                 className="inline-flex items-center gap-3 border-2 border-white rounded-full px-6 py-3 text-white font-semibold hover:bg-white/10 transition"
                 aria-label={t.cta}
               >
